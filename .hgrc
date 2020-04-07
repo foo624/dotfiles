@@ -1,0 +1,32 @@
+[ui]
+username = momo <momo@sakura>
+[alias]
+br = branch
+ba = branches -a
+st = status
+ci = commit
+
+[extensions]
+color =
+convert =
+graphlog =
+mq =
+pager =
+rebase =
+
+[color]
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = blue bold
+status.ignored = black bold
+qseries.applied = cyan bold
+qseries.unapplied = black bold
+qseries.missing = red bold
+
+[pager]
+pager = lv
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt

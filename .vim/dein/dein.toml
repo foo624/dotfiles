@@ -1,0 +1,196 @@
+# vim:set et ts=2 sts=2 sw=2 tw=0 fdm=marker:
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = 'source ~/.vim/config/plugins/plugins-denite.vim'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+if   = '''has('unix')'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'source ~/.vim/config/plugins/plugins-deoplete.vim'
+if   = '''800 <= v:version'''
+
+[[plugins]]
+repo = 'raghur/fruzzy'
+hook_post_update = 'call fruzzy#install()'
+hook_add = '''
+  let g:fruzzy#usenative = 1
+  let g:fruzzy#sortonempty = 1
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if   = '''!has('nvim') && 800 <= v:version'''
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if   = '''!has('nvim') && 800 <= v:version'''
+
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+if   = '''has('unix')'''
+
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+hook_add = '''
+  let g:echodoc_enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_add = 'source ~/.vim/config/plugins/plugins-neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc'
+
+[[plugins]]
+repo = 'Shougo/vinarise'
+
+[[plugins]]
+repo = '5t111111/denite-rails'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+  let g:EasyMotion_do_mapping = 0 "Disable default mappings
+  nmap s <Plug>(easymotion-s2)
+  xmap s <Plug>(easymotion-s2)
+  omap z <Plug>(easymotion-s2)
+
+  " `JK` Motions: Extend line motions
+  map <C-j> <Plug>(easymotion-j)
+  map <C-k> <Plug>(easymotion-k)
+  " keep cursor column with `JK` motions
+  let g:EasyMotion_startofline = 0
+'''
+
+[[plugins]]
+repo = 'gregsexton/gitv'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/config/plugins/plugins-lightline.vim'
+
+[[plugins]]
+repo = 'itchyny/vim-parenmatch'
+hook_add = 'let g:loaded_matchparen = 1'
+
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+  xmap <Enter> <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]]
+repo = 'mrtazz/DoxygenToolkit.vim'
+hook_add = 'let g:DoxygenToolkit_paramTag_pre="@param [in]	"'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+hook_add = 'let NERDSpaceDelims = 1'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+
+[[plugins]]
+repo = 'soh335/unite-qflist'
+
+[[plugins]]
+repo = 'tacroe/unite-mark'
+
+[[plugins]]
+repo = 'taka84u9/vim-ref-ri'
+
+[[plugins]]
+repo = 'thinca/vim-openbuf'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'tpope/vim-bundler'
+if   = '''has('unix')'''
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+  "nmap <silent> <Leader>gs :<C-u>Gstatus<CR>
+  nnoremap <silent> <Leader>gs :<C-u>Gstatus<CR>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+## for solargraph
+## gem install solargraph
+## pip install solargraph-utils.py --user
+##
+## yard gems 
+## yard config --gem-install-yri 
+#[[plugins]]
+#repo = 'uplus/deoplete-solargraph'
+#if   = '''has('unix')'''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'yuku-t/vim-ref-ri'
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+if   = '''has('unix')'''
+hook_add = '''
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
+  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+'''
+
+# vim-scripts
+[[plugins]]
+repo = 'vim-scripts/genutils'
+
+[[plugins]]
+repo = 'vim-scripts/matchit.zip'
+
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+

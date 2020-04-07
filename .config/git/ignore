@@ -1,0 +1,9 @@
+# tag files
+tags
+GPATH
+GRTAGS
+GTAGS
+
+NordicSemiconductor/
+
+doxygen/html

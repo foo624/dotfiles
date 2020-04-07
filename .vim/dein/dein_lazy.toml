@@ -1,0 +1,36 @@
+# vim:set et ts=2 sts=2 sw=2 tw=0 fdm=marker:
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_cmd = ['Defx']
+hook_source = 'source ~/.vim/config/plugins/plugins-defx.vim'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = 'go'
+depends = ['deoplete.nvim']
+hook_source = '''
+    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+'''
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]] # fish syntax
+repo = 'dag/vim-fish'
+on_ft = ['fish']
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+

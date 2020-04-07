@@ -1,0 +1,8 @@
+#
+# screen setting
+#
+term xterm-256color
+
+# For Abort because of window resize
+termcapinfo  xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+

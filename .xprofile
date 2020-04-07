@@ -1,0 +1,7 @@
+# キャッシュディレクトリの指定
+export XDG_CACHE_HOME="/tmp/.${USER}/cache"
+
+# パーミッションの設定
+mkdir -p ${XDG_CACHE_HOME}
+chmod 700 ${XDG_CACHE_HOME}
+

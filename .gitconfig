@@ -1,0 +1,13 @@
+[color]
+	ui = auto
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	l  = log
+	pr = pull --rebase
+[core]
+	quotepath = false
+[push]
+	default = simple
