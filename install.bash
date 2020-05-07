@@ -56,4 +56,5 @@ mkdir -p $HOME/.cache/dein
 ln -s $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.cache/dein/dein.toml
 ln -s $DOT_FILES_PATH/.vim/dein/dein_lazy.toml $HOME/.cache/dein/dein_lazy.toml
 ln -s $DOT_FILES_PATH/.vim $HOME/.config/nvim
+ln -s $HOME/.vim/pack $HOME/.config/nvim/pack
 

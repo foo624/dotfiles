@@ -7,7 +7,7 @@
 let g:deoplete#enable_at_startup = 1
 
 " Use smartcase.
-let g:deoplete#enable_smart_case = 1
+"call deoplete#custom#option('smart_case', v:true)
 
 " 補完候補の共通部まで補完する
 inoremap <expr><C-l> deoplete#complete_common_string()

@@ -55,12 +55,25 @@ call denite#custom#alias('source', 'file/rec/git', 'file/rec')
 call denite#custom#var('file/rec/git', 'command',
       \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
-call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
+"call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
 
-call denite#custom#option('default', {
+let s:denite_custom_option_default = {
+      \ 'split': 'floating',
       \ 'highlight_matched_char': 'Keyword',
       \ 'highlight_mode_normal': 'TabLine'
-      \ })
+      \}
+
+call denite#custom#option('default', s:denite_custom_option_default)
+call denite#custom#option('outline', s:denite_custom_option_default)
+call denite#custom#option('files', s:denite_custom_option_default)
+call denite#custom#option('search-buffer-denite', s:denite_custom_option_default)
+
+" floating の透過設定
+augroup transparent-windows
+  autocmd!
+  autocmd FileType denite set winblend=30
+  autocmd FileType denite-filter set winblend=30
+augroup END
 
 " map
 nnoremap [denite] <Nop>

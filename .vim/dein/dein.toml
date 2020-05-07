@@ -16,13 +16,13 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = 'source ~/.vim/config/plugins/plugins-deoplete.vim'
 if   = '''800 <= v:version'''
 
-[[plugins]]
-repo = 'raghur/fruzzy'
-hook_post_update = 'call fruzzy#install()'
-hook_add = '''
-  let g:fruzzy#usenative = 1
-  let g:fruzzy#sortonempty = 1
-'''
+#[[plugins]]
+#repo = 'raghur/fruzzy'
+#hook_post_update = 'call fruzzy#install()'
+#hook_add = '''
+#  let g:fruzzy#usenative = 1
+#  let g:fruzzy#sortonempty = 1
+#'''
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'

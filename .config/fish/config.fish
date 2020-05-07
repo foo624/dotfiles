@@ -37,3 +37,6 @@ alias be='bundle exec'
 # for fisherman color
 set fish_color_match red
 
+# for fzf key binding
+set -U FZF_LEGACY_KEYBINDINGS 0
+

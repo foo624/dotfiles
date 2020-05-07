@@ -28,6 +28,7 @@
 !.vim/
 !.vim/bundle/.gitkeep
 .vim/bundle/
+.vim/pack
 
 .vim/dein/*
 !.vim/dein/dein.toml
