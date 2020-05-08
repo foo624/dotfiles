@@ -112,6 +112,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'maximbaz/lightline-ale'
+
+[[plugins]]
 repo = 'mrtazz/DoxygenToolkit.vim'
 hook_add = 'let g:DoxygenToolkit_paramTag_pre="@param [in]	"'
 
@@ -180,7 +183,7 @@ repo = 'yuku-t/vim-ref-ri'
 repo = 'zchee/deoplete-clang'
 if   = '''has('unix')'''
 hook_add = '''
-  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang.so'
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so'
   let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
 
@@ -193,4 +196,8 @@ repo = 'vim-scripts/matchit.zip'
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = 'source ~/.vim/config/plugins/plugins-ale.vim'
 
