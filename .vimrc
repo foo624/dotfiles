@@ -359,6 +359,7 @@ endif
 
 " required:
 filetype plugin indent on
+syntax enable
 
 " If you want to install not installed plugins on startup.
 if has('vim_starting') && dein#check_install()

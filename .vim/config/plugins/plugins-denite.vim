@@ -103,7 +103,7 @@ nnoremap <silent> [denite]q :<C-u>Denite unite:qflist<CR>
 if has("unix")
   nnoremap <silent> [denite]t :<C-u>Deol<CR>
 endif
-nnoremap <silent> [denite]d :<C-u>Defx<CR>
+nnoremap <silent> [denite]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 nnoremap <silent> [denite]G  :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
 nnoremap <silent> [denite]gg :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
