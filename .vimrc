@@ -326,17 +326,21 @@ if &compatible
 endif
 
 " パス設定
-if has("win32")
-  let s:dein_dir = expand('~/vimfiles/dein')
-  let g:dein#install_max_processes = 1
-elseif has("nvim")
+if has("nvim")
   let s:dein_dir = expand('~/.cache/dein')
+elseif has("win32")
+  let s:dein_dir = expand('~/vimfiles/dein')
 else
   let s:dein_dir = expand('~/.vim/dein')
 endif
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let s:toml      = s:dein_dir . '/dein.toml'
 let s:toml_lazy = s:dein_dir . '/dein_lazy.toml'
+
+" git process
+if has("win32")
+  let g:dein#install_max_processes = 1
+endif
 
 " dein.vim がない場合は自動インストール
 if !isdirectory(s:dein_repo_dir)
