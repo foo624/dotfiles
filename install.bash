@@ -1,13 +1,50 @@
 #!/bin/bash
 
+function echo_usage () {
+  echo "Usage: `basename $0` [ fish | bash ]" 1>&2
+}
+
+if [ $# -ne 1 ]; then
+  echo_usage
+  exit 1
+fi
+
+if [[ ! -x `which git` ]]; then
+  echo "git command is not found."
+  exit 1
+fi
+
 DOT_FILES_PATH=$(cd $(dirname $0) && pwd)
 
-DOT_FILES=(.gvimrc .lv .vimrc)
+# select install dotfiles
+if [ $1 = "fish" ]; then
+  DOT_FILES=(.gvimrc .lv .vimrc)
+else
+  DOT_FILES=(.bash_aliases .bash_profile .bashrc .dircolors .gvimrc .lv .vimrc)
+else
+  echo "$1 is invalid parameter." 1>&2
+  echo_usage
+  exit 1
+fi
 
+# dotfiles
 for file in ${DOT_FILES[@]}
 do
-	ln -s $DOT_FILES_PATH/$file $HOME/$file
+  if [ -e ${file} ]; then
+    if [ ! -L ${file} ]; then
+      mv $HOME/$file $HOME/$file.dotfiles
+      ln -s $DOT_FILES_PATH/$file $HOME/$file
+    fi
+  else
+    ln -s $DOT_FILES_PATH/$file $HOME/$file
+  fi
 done
+
+# shell
+if [ ! -e $HOME/.dircolors-solarized ]; then
+  git clone https://github.com/seebi/dircolors-solarized.git $HOME/.dircolors-solarized
+fi
+ln -s $HOME/.dircolors-solarized/dircolors.256dark $HOME/.dircolors
 
 # pt
 mkdir -p $HOME/.config/pt
@@ -36,16 +73,7 @@ ln -s $DOT_FILES_PATH/.vimrc $HOME/.vim/init.vim
 ln -s $DOT_FILES_PATH/.vim/config/plugins $HOME/.vim/config/
 ln -s $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.vim/dein/dein.toml
 ln -s $DOT_FILES_PATH/.vim/dein/dein_lazy.toml $HOME/.vim/dein/dein_lazy.toml
-
-ln -s $DOT_FILES_PATH/.vim/after/ftplugin/ruby.vim $HOME/.vim/after/ftplugin/ruby.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/ant.vim $HOME/.vim/after/indent/ant.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/css.vim $HOME/.vim/after/indent/css.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/html.vim $HOME/.vim/after/indent/html.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/php.vim $HOME/.vim/after/indent/php.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/ruby.vim $HOME/.vim/after/indent/ruby.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/smarty.vim $HOME/.vim/after/indent/smarty.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/sql.vim $HOME/.vim/after/indent/sql.vim
-ln -s $DOT_FILES_PATH/.vim/after/indent/yaml.vim $HOME/.vim/after/indent/yaml.vim
+ln -s $DOT_FILES_PATH/.vim/after/indent/*.vim $HOME/.vim/after/indent/
 
 if [ ! -e $HOME/.vim/pack/themes/opt/vim-solarized8 ]; then
 	git clone https://github.com/lifepillar/vim-solarized8.git $HOME/.vim/pack/themes/opt/vim-solarized8
@@ -55,6 +83,5 @@ fi
 mkdir -p $HOME/.cache/dein
 ln -s $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.cache/dein/dein.toml
 ln -s $DOT_FILES_PATH/.vim/dein/dein_lazy.toml $HOME/.cache/dein/dein_lazy.toml
-ln -s $DOT_FILES_PATH/.vim $HOME/.config/nvim
-ln -s $HOME/.vim/pack $HOME/.config/nvim/pack
+ln -s $HOME/.vim $HOME/.config/nvim
 

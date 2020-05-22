@@ -55,8 +55,9 @@ if (v:version > 704 || (v:version == 704 && has('patch314')))
 endif
 
 " タブ
-set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 set showmatch "括弧入力時の対応する括弧を表示
 

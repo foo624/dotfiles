@@ -1,8 +1,5 @@
 # dircolor
-if test ! -e ~/.dircolors-solarized/dircolors.ansi-dark
-    git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors-solarized
-end
-eval (dircolors -c ~/.dircolors-solarized/dircolors.ansi-dark)
+eval (dircolors -c ~/.dircolors)
 
 # env
 set -x SUDO_EDITOR nvim
@@ -19,6 +16,12 @@ alias rm='rm -iv'
 
 alias df='df -h'
 alias du='du -hc'
+
+if test -x (which colordiff)
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u --color=always'
+end
 
 alias euc2sjis='iconv -f euc-jp -t sjis'
 alias euc2utf='iconv -f euc-jp -t utf-8'
