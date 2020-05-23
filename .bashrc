@@ -3,7 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 ## 新しく作られたファイルのパーミッションが常に 644 になるようにする。
 umask 022
@@ -13,28 +16,6 @@ umask 022
 # Editor setting for 'crontab -e'
 export EDITOR=nvim
 
-# RCS setting
-export RCSINIT=-zLT
-
-# less のステータス行にファイル名と行数、いま何%かを表示するようにする
-export LESS='-X -i -P ?f%f:(stdin). ?lb%lb?L/%L..  [?eEOF:?pb%pb\%..]'
-
-# jless setting
-export JLESSCHARSET=japanese
-
-# default pager
-export PAGER=lv
-
-# to .bash_profile
-## Environment Setting
-#LD_LIBRARY_PATH="/usr/local/lib":$LD_LIBRARY_PATH
-#export LD_LIBRARY_PATH
-
-# ccache
-# to .bash_profile
-#export PATH=/usr/lib/ccache:$PATH
-export CCACHE_DIR=/mnt/sakura/momo/ccache
-
 ## history
 function share_history {
 	history -a
@@ -43,43 +24,43 @@ function share_history {
 }
 #PROMPT_COMMAND='share_history'
 
-# ... or force ignoredups and ignorespace
-export HISTCONTROL=ignoreboth
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-#shopt -u histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=10000
-export HISTIGNORE=cd*:ls:ll:history*:exit:logout:w
+HISTSIZE=10000
+HISTFILESIZE=5000
+HISTIGNORE=cd*:ls:ll:history*:exit:logout:w
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
 # なにも入力していないときはコマンド名を補完しない。
 shopt -s no_empty_cmd_completion
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # X-ON/X-OFF
 stty -ixon -ixoff
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
-    xterm-256color) color_prompt=yes;;
-    putty-256color) color_prompt=yes;;
-    cygwin) color_prompt=yes;;
-    screen-256color-bce) color_prompt=yes;;
-    screen-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -116,6 +97,30 @@ xterm*|rxvt*|putty*)
     ;;
 esac
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -125,61 +130,19 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-	if [ -f ~/.dircolors ]; then
-		eval "`dircolors -b ~/.dircolors`"
-	else
-    	eval "`dircolors -b`"
-	fi	
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  fi
 fi
-
-# 履歴付きのcd
-if [ -f ~/tool/cdhist.sh ]; then
-	. ~/tool/cdhist.sh
-fi
-
-# global complete
-funcs()
-{
-	local cur
-	cur=${COMP_WORDS[COMP_CWORD]}
-	COMPREPLY=(`global -c $cur`)
-}
-
-complete -F funcs global
 
 git_branch() {
 	__git_ps1 ' (git:%s)'
 }
-
-hg_branch() {
-	if [ -d ./.hg ]; then
-		if [ -f ./.hg/branch ]; then
-			echo " (hg:`cat ./.hg/branch`)"
-		else
-			echo " (hg:non-head)"
-		fi	
-	fi
-}
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
