@@ -46,6 +46,11 @@ if [ ! -e $HOME/.dircolors-solarized ]; then
 fi
 ln -s $HOME/.dircolors-solarized/dircolors.256dark $HOME/.dircolors
 
+if [ ! -e $HOME/.bin/z/z.sh ]; then
+  mkdir -p $HOME/.bin
+  git clone https://github.com/rupa/z.git $HOME/.bin/z
+fi
+
 # pt
 mkdir -p $HOME/.config/pt
 ln -s $DOT_FILES_PATH/.config/pt/config.toml $HOME/.config/pt/config.toml

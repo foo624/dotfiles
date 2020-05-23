@@ -82,7 +82,7 @@ fi
 if [ "$color_prompt" = yes ]; then
 #	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 #	PS1="\[\e]0;\u@\h: \w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\$(__git_ps1 ' (%s)')\n\$ "
-	PS1="\[\e]0;\u@\h: \w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\$(git_branch)\$(hg_branch)\n\$ "
+	PS1="\[\e]0;\u@\h: \w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\$(git_branch)\n\$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -144,5 +144,9 @@ fi
 git_branch() {
 	__git_ps1 ' (git:%s)'
 }
+
+[ -f ~/.bin/z/z.sh ] && source ~/.bin/z/z.sh
+
+[ -f ~/.bashrc.fzf ] && source ~/.bashrc.fzf
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
