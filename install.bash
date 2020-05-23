@@ -19,7 +19,7 @@ DOT_FILES_PATH=$(cd $(dirname $0) && pwd)
 # select install dotfiles
 if [ $1 = "fish" ]; then
   DOT_FILES=(.gvimrc .lv .vimrc)
-else
+elif [ $1 = "bash" ]; then
   DOT_FILES=(.bash_aliases .bash_profile .bashrc .dircolors .gvimrc .lv .vimrc)
 else
   echo "$1 is invalid parameter." 1>&2
@@ -60,7 +60,7 @@ ln -s $DOT_FILES_PATH/.config/fish/config.fish $HOME/.config/fish/config.fish
 ln -s $DOT_FILES_PATH/.config/fish/fishfile $HOME/.config/fish/fishfile
 
 mkdir -p $HOME/.config/fish/functions
-ln -s $DOT_FILES_PATH/.config/fish/functions/fish_prompt.fish $HOME/.config/fish/functions/fish_prompt.fish
+ln -s $DOT_FILES_PATH/.config/fish/functions/*.fish $HOME/.config/fish/functions/
 
 # vim
 mkdir -p $HOME/.vim
@@ -76,7 +76,7 @@ ln -s $DOT_FILES_PATH/.vim/dein/dein_lazy.toml $HOME/.vim/dein/dein_lazy.toml
 ln -s $DOT_FILES_PATH/.vim/after/indent/*.vim $HOME/.vim/after/indent/
 
 if [ ! -e $HOME/.vim/pack/themes/opt/vim-solarized8 ]; then
-	git clone https://github.com/lifepillar/vim-solarized8.git $HOME/.vim/pack/themes/opt/vim-solarized8
+  git clone https://github.com/lifepillar/vim-solarized8.git $HOME/.vim/pack/themes/opt/vim-solarized8
 fi
 
 # nvim
