@@ -20,7 +20,7 @@ DOT_FILES_PATH=$(cd $(dirname $0) && pwd)
 if [ $1 = "fish" ]; then
   DOT_FILES=(.gvimrc .lv .vimrc)
 elif [ $1 = "bash" ]; then
-  DOT_FILES=(.bash_aliases .bash_profile .bashrc .dircolors .gvimrc .lv .vimrc)
+  DOT_FILES=(.bash_aliases .bash_profile .bashrc .gvimrc .lv .vimrc)
 else
   echo "$1 is invalid parameter." 1>&2
   echo_usage

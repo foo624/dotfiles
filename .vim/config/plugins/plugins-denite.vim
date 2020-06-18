@@ -108,8 +108,8 @@ nnoremap <silent> [denite]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
 nnoremap <silent> [denite]G  :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
 nnoremap <silent> [denite]gg :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
 nnoremap <silent> [denite]gr :<C-u>Denite -resume -buffer_name=search-buffer-denite<CR>
-nnoremap <silent> [denite]gn :<C-u>Denite -resume -immediately -select=+1 -buffer_name=search-buffer-denite<CR>
-nnoremap <silent> [denite]gp :<C-u>Denite -resume -immediately -select=-1 -buffer_name=search-buffer-denite<CR>
+nnoremap <silent> [denite]gn :<C-u>Denite -resume -immediately -cursor-pos=+1 -buffer_name=search-buffer-denite<CR>
+nnoremap <silent> [denite]gp :<C-u>Denite -resume -immediately -cursor-pos=-1 -buffer_name=search-buffer-denite<CR>
 
 nnoremap [rails] <Nop>
 nmap     <Leader>r [rails]
