@@ -74,6 +74,13 @@ repo = 'Shougo/vinarise'
 repo = '5t111111/denite-rails'
 
 [[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+if   = '''has('unix')'''
+rev = 'next'
+build = 'bash install.sh'
+hook_add ='source ~/.vim/config/plugins/plugins-LanguageClient-neovim.vim'
+
+[[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_do_mapping = 0 "Disable default mappings
