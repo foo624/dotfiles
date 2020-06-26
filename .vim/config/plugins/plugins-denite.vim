@@ -55,8 +55,6 @@ call denite#custom#alias('source', 'file/rec/git', 'file/rec')
 call denite#custom#var('file/rec/git', 'command',
       \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
-"call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
-
 let s:denite_custom_option_default = {
       \ 'split': 'floating',
       \ 'highlight_matched_char': 'Keyword',

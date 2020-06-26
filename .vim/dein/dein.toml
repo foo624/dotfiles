@@ -16,14 +16,6 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = 'source ~/.vim/config/plugins/plugins-deoplete.vim'
 if   = '''800 <= v:version'''
 
-#[[plugins]]
-#repo = 'raghur/fruzzy'
-#hook_post_update = 'call fruzzy#install()'
-#hook_add = '''
-#  let g:fruzzy#usenative = 1
-#  let g:fruzzy#sortonempty = 1
-#'''
-
 [[plugins]]
 repo = 'roxma/nvim-yarp'
 if   = '''!has('nvim') && 800 <= v:version'''
@@ -31,10 +23,6 @@ if   = '''!has('nvim') && 800 <= v:version'''
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 if   = '''!has('nvim') && 800 <= v:version'''
-
-[[plugins]]
-repo = 'Shougo/deoplete-rct'
-if   = '''has('unix')'''
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
@@ -60,12 +48,6 @@ repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/vimproc'
 
 [[plugins]]
 repo = 'Shougo/vinarise'
@@ -130,18 +112,6 @@ repo = 'scrooloose/nerdcommenter'
 hook_add = 'let NERDSpaceDelims = 1'
 
 [[plugins]]
-repo = 'sjl/gundo.vim'
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-
-[[plugins]]
-repo = 'soh335/unite-qflist'
-
-[[plugins]]
-repo = 'tacroe/unite-mark'
-
-[[plugins]]
 repo = 'taka84u9/vim-ref-ri'
 
 [[plugins]]
@@ -200,9 +170,6 @@ repo = 'vim-scripts/genutils'
 
 [[plugins]]
 repo = 'vim-scripts/matchit.zip'
-
-[[plugins]]
-repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
 repo = 'w0rp/ale'
