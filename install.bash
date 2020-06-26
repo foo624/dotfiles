@@ -74,6 +74,8 @@ mkdir -p $HOME/.vim/after/indent
 mkdir -p $HOME/.vim/config
 mkdir -p $HOME/.vim/dein
 mkdir -p $HOME/.vim/pack/themes/opt
+mkdir -p $HOME/.vim_backup
+mkdir -p $HOME/.vim_undo
 ln -s $DOT_FILES_PATH/.vimrc $HOME/.vim/init.vim
 ln -s $DOT_FILES_PATH/.vim/config/plugins $HOME/.vim/config/
 ln -s $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.vim/dein/dein.toml
