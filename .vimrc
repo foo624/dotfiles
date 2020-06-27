@@ -59,8 +59,6 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-set showmatch "括弧入力時の対応する括弧を表示
-
 " 行番号を非表示 (number:表示)
 set number
 " タブや改行を表示 (list:表示)

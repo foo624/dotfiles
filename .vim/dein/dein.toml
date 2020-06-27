@@ -108,8 +108,11 @@ repo = 'mrtazz/DoxygenToolkit.vim'
 hook_add = 'let g:DoxygenToolkit_paramTag_pre="@param [in]	"'
 
 [[plugins]]
-repo = 'scrooloose/nerdcommenter'
-hook_add = 'let NERDSpaceDelims = 1'
+repo = 'reireias/vim-cheatsheet'
+hook_add = '''
+  let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
+  nnoremap <silent> <Leader>md :<C-u>Cheat<CR>
+'''
 
 [[plugins]]
 repo = 'taka84u9/vim-ref-ri'
@@ -126,6 +129,9 @@ repo = 'thinca/vim-ref'
 [[plugins]]
 repo = 'tpope/vim-bundler'
 if   = '''has('unix')'''
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'

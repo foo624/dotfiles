@@ -81,6 +81,7 @@ ln -s $DOT_FILES_PATH/.vim/config/plugins $HOME/.vim/config/
 ln -s $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.vim/dein/dein.toml
 ln -s $DOT_FILES_PATH/.vim/dein/dein_lazy.toml $HOME/.vim/dein/dein_lazy.toml
 ln -s $DOT_FILES_PATH/.vim/after/indent/*.vim $HOME/.vim/after/indent/
+ln -s $DOT_FILES_PATH/.cheatsheet.md $HOME/.cheatsheet.md
 
 if [ ! -e $HOME/.vim/pack/themes/opt/vim-solarized8 ]; then
   git clone https://github.com/lifepillar/vim-solarized8.git $HOME/.vim/pack/themes/opt/vim-solarized8
