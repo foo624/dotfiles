@@ -7,7 +7,7 @@
 "---------------------------------------------------------------------------
 " 文字コード指定
 set encoding=utf-8
-set fileencodings=iso-2022-jp-3,eucjp-ms,cp932,ucs-bom,utf-8,default,latin1
+set fileencodings=utf-8,iso-2022-jp-3,eucjp-ms,cp932,ucs-bom,default,latin1
 set fileformats=unix,dos,mac
 
 " 日本語を含まない場合は fileencoding に encoding を使うようにする

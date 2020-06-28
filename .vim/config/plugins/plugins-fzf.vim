@@ -10,14 +10,24 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 if executable('pt')
   command! -bang -nargs=* Pt
         \ call fzf#vim#grep(
-        \   'pt --follow --nogroup --smart-case --column --context=0 -- '.shellescape(<q-args>), 0,
+        \   'pt --follow --nogroup --smart-case --column --context=0 --hidden -- '.shellescape(<q-args>), 0,
         \   fzf#vim#with_preview({'options': '--reverse --color --delimiter : --nth 4..'}, 'up:50%:wrap'), <bang>0)
 endif
 
+" auto select Files or GFiles
+function! FzfOmniFiles()
+  let is_git = finddir(".git", ";")
+  if '' != is_git
+    :GFiles -co --exclude-standard
+  else
+    :Files
+  endif
+endfunction
+
 " map
 nnoremap [fzf] <Nop>
-nmap F [fzf]
-nnoremap [fzf]F F
+nmap f [fzf]
+nnoremap [fzf]f f
 
 nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
 nnoremap <silent> [fzf]F :<C-u>Files<CR>
@@ -26,8 +36,32 @@ nnoremap <silent> [fzf]h :<C-u>Helptags<CR>
 
 nnoremap <silent> [fzf]T :<C-u>Tags<CR>
 nnoremap <silent> [fzf]c :<C-u>History:<CR>
-nnoremap <silent> [fzf]p :<C-u>GFiles -co --exclude-standard<CR>
-nnoremap <silent> [fzf]/ :<C-u>Lines<CR>
+nnoremap <silent> [fzf]p :<C-u>call FzfOmniFiles()<CR>
+nnoremap <silent> [fzf]P :<C-u>GFiles?<CR>
+nnoremap <silent> [fzf]l :<C-u>Commits<CR>
+nnoremap <silent> [fzf]L :<C-u>BCommits<CR>
+nnoremap <silent> [fzf]/ :<C-u>BLines<CR>
 
 nnoremap <silent> [fzf]g :<C-u>Pt <C-r><C-w><CR>
+nnoremap <silent> [fzf]G :<C-u>exec ":Pt ".input("Input: ")<CR>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" [denite] convert mapping
+if has("unix")
+  nnoremap <silent> [fzf]t :<C-u>Deol<CR>
+endif
+nnoremap <silent> [fzf]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
+nnoremap <silent> [fzf]y :<C-u>Denite -start-filter neoyank<CR>
+nnoremap <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline outline<CR>
+
+" for golang
+augroup MyDeniteMap
+  autocmd!
+  autocmd FileType go nnoremap <buffer> <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline decls<CR>
+augroup END
 

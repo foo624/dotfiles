@@ -1,4 +1,4 @@
 color = true
 context = 3
-ignore = ["vendor/bundle", "tags", "doxygen"]
+ignore = ["vendor/bundle", "tags", "doxygen", ".git"]
 color-path = "1;34"

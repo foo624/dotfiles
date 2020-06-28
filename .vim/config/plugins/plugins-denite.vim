@@ -35,7 +35,7 @@ endif
 if executable('pt')
   " Pt command on grep source
   call denite#custom#var('grep', 'command', ['pt'])
-  call denite#custom#var('grep', 'default_opts', ['--nogroup', '--nocolor', '--smart-case'])
+  call denite#custom#var('grep', 'default_opts', ['--nogroup', '--nocolor', '--smart-case', '--context=0', '--hidden'])
   call denite#custom#var('grep', 'recursive_opts', [])
   call denite#custom#var('grep', 'pattern_opt', [])
   call denite#custom#var('grep', 'separator', ['--'])
@@ -76,8 +76,8 @@ augroup END
 " map
 nnoremap [denite] <Nop>
 nmap <SPACE>u [denite]
-nmap f [denite]
-nnoremap [denite]f f
+nmap F [denite]
+nnoremap [denite]F F
 
 nnoremap <silent> [denite]b :<C-u>Denite -start-filter buffer<CR>
 nnoremap <silent> [denite]F :<C-u>DeniteBufferDir -start-filter -buffer-name=files file<CR>
