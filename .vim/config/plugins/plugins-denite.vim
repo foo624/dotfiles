@@ -95,8 +95,6 @@ nnoremap <silent> [denite]T :<C-u>DeniteCursorWord -start-filter tag<CR>
 nnoremap <silent> [denite]c :<C-u>Denite -start-filter command_history<CR>
 nnoremap <silent> [denite]p :<C-u>Denite -start-filter `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
 nnoremap <silent> [denite]/ :<C-u>Denite -start-filter line<CR>
-nnoremap <silent> [denite]s :<C-u>Denite menu:build<CR>
-nnoremap <silent> [denite]q :<C-u>Denite unite:qflist<CR>
 
 if has("unix")
   nnoremap <silent> [denite]t :<C-u>Deol<CR>
@@ -122,19 +120,4 @@ nnoremap <silent> [rails]v :<C-u>Denite -start-filter rails:view<Return>
 nnoremap <silent> [rails]h :<C-u>Denite -start-filter rails:helper<Return>
 nnoremap <silent> [rails]t :<C-u>Denite -start-filter rails:test<Return>
 nnoremap <silent> [rails]s :<C-u>Denite -start-filter rails:spec<Return>
-
-"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-" denite-menu - ショートカットメニュー
-
-let s:menus = {}
-let s:menus.build = { 'description': 'buid' }
-let s:menus.build.command_candidates  = [
-      \  [ "build",         "Denite unite:build -no-quit" ],
-      \  [ "build debug",   "Denite unite:build:make:debug -no-quit" ],
-      \  [ "build release", "Denite unite:build:make:release -no-quit" ],
-      \  [ "build verbose", "Denite unite:build:! -no-quit" ],
-      \  [ "build clean",   "Denite unite:build:make:clean -auto-quit" ],
-      \]
-
-call denite#custom#var('menu', 'menus', s:menus)
 
