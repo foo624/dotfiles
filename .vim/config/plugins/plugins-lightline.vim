@@ -59,8 +59,8 @@ function! LightlineFilename()
 endfunction
 
 function! LightlineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-    return fugitive#head()
+  if &ft !~? 'vimfiler\|gundo' && exists('*FugitiveHead')
+    return FugitiveHead()
   else
     return ''
   endif
