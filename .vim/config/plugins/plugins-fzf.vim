@@ -11,7 +11,7 @@ if executable('pt')
   command! -bang -nargs=* Pt
         \ call fzf#vim#grep(
         \   'pt --follow --nogroup --smart-case --column --context=0 --hidden -- '.shellescape(<q-args>), 0,
-        \   fzf#vim#with_preview({'options': '--reverse --color --delimiter : --nth 4..'}, 'up:50%:wrap'), <bang>0)
+        \   fzf#vim#with_preview({'options': '--reverse --color --delimiter : --nth 4.. --multi'}, 'up:50%:wrap'), <bang>0)
 endif
 
 " auto select Files or GFiles
@@ -35,6 +35,7 @@ nnoremap <silent> [fzf]m :<C-u>History<CR>
 nnoremap <silent> [fzf]h :<C-u>Helptags<CR>
 
 nnoremap <silent> [fzf]T :<C-u>Tags<CR>
+nnoremap <silent> [fzf]o :<C-u>BTags<CR>
 nnoremap <silent> [fzf]c :<C-u>History:<CR>
 nnoremap <silent> [fzf]p :<C-u>call FzfOmniFiles()<CR>
 nnoremap <silent> [fzf]P :<C-u>GFiles?<CR>
@@ -44,6 +45,8 @@ nnoremap <silent> [fzf]/ :<C-u>BLines<CR>
 
 nnoremap <silent> [fzf]g :<C-u>Pt <C-r><C-w><CR>
 nnoremap <silent> [fzf]G :<C-u>exec ":Pt ".input("Input: ")<CR>
+nnoremap <silent> [fzf]nn :<C-u>cnext<CR>
+nnoremap <silent> [fzf]np :<C-u>cprev<CR>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -57,7 +60,6 @@ endif
 nnoremap <silent> [fzf]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 nnoremap <silent> [fzf]y :<C-u>Denite -start-filter neoyank<CR>
-nnoremap <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline outline<CR>
 
 " for golang
 augroup MyDeniteMap
