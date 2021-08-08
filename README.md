@@ -13,10 +13,10 @@ set -x -U LD_LIBRARY_PATH /usr/local/lib
 
 - <https://github.com/junegunn/fzf>
 
-## fisherman
+## fisher
 
-- <https://github.com/fisherman/fisherman/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E>
+- <https://github.com/jorgebucaran/fisher>
 
 ```bash
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ```
