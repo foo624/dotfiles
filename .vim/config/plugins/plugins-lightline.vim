@@ -42,24 +42,21 @@ let g:lightline = {
         \ }
 
 function! LightlineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &ft =~ '\v(help)' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! LightlineReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? ' [RO]' : ''
+  return &ft !~# '\v(help)' && &readonly ? ' [RO]' : ''
 endfunction
 
 function! LightlineFilename()
-  return  (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:~:.') : '[No Name]') .
+  return  ('' != expand('%:t') ? expand('%:~:.') : '[No Name]') .
         \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
         \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
 function! LightlineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('*FugitiveHead')
+  if &ft !~# '\v(defx)' && exists('*FugitiveHead')
     return FugitiveHead()
   else
     return ''

@@ -20,7 +20,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> E
   \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> P
-  \ defx#do_action('open', 'pedit')
+  \ defx#do_action('preview')
   nnoremap <silent><buffer><expr> o
   \ defx#do_action('open_tree', 'toggle')
   nnoremap <silent><buffer><expr> K

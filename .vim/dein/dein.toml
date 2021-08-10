@@ -110,6 +110,11 @@ repo = 'maximbaz/lightline-ale'
 [[plugins]]
 repo = 'mrtazz/DoxygenToolkit.vim'
 hook_add = 'let g:DoxygenToolkit_paramTag_pre="@param [in]	"'
+hook_add = '''
+  let g:DoxygenToolkit_paramTag_pre ="@param [in]	"
+  let g:DoxygenToolkit_startCommentTag="/**"
+  let g:DoxygenToolkit_startCommentBlock="/*"
+'''
 
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
@@ -164,9 +169,6 @@ repo = 'tpope/vim-surround'
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
-repo = 'yuku-t/vim-ref-ri'
-
-[[plugins]]
 repo = 'zchee/deoplete-clang'
 if   = '''has('unix')'''
 hook_add = '''
@@ -182,6 +184,6 @@ repo = 'vim-scripts/genutils'
 repo = 'vim-scripts/matchit.zip'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = 'source ~/.vim/config/plugins/plugins-ale.vim'
 
