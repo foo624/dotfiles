@@ -131,6 +131,9 @@ set title
 " マクロなど実行中は描画を中断
 set lazyredraw
 
+" json のダブルコーテーションの常時表示
+autocmd Filetype json setl conceallevel=0
+
 " ファイルタイプ設定
 au BufReadPost hg-editor-* set filetype=hg-commit
 

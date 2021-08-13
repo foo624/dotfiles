@@ -15,6 +15,8 @@ if executable('clangd')
       \ }
 endif
 
+let g:LanguageClient_diagnosticsList = "Disabled"
+
 augroup LanguageClient_config
     autocmd!
     autocmd User LanguageClientStarted setlocal signcolumn=yes

@@ -42,3 +42,6 @@ hook_source = '''
 repo = 'slim-template/vim-slim'
 on_ft = ['slim']
 
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']
