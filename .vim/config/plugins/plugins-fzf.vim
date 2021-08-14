@@ -48,6 +48,10 @@ nnoremap <silent> [fzf]G :<C-u>exec ":Pt ".input("Input: ")<CR>
 nnoremap <silent> [fzf]nn :<C-u>cnext<CR>
 nnoremap <silent> [fzf]np :<C-u>cprev<CR>
 
+nnoremap <silent> <C-p> :<C-u>cprev<CR>
+nnoremap <silent> <C-n> :<C-u>cnext<CR>
+nnoremap <silent> <leader>c :<C-u>cclose<CR>
+
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)

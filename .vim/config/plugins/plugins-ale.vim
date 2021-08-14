@@ -23,3 +23,5 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "    \   'cpp' : ['clangd']
 "    \}
 
+nmap <silent> <M-p> <Plug>(ale_previous_wrap)
+nmap <silent> <M-n> <Plug>(ale_next_wrap)
