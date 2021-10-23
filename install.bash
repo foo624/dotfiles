@@ -73,6 +73,7 @@ mkdir -p $HOME/.vim/after/ftplugin
 mkdir -p $HOME/.vim/after/indent
 mkdir -p $HOME/.vim/config
 mkdir -p $HOME/.vim/dein
+mkdir -p $HOME/.vim/ftdetect
 mkdir -p $HOME/.vim/pack/themes/opt
 mkdir -p $HOME/.vim_backup
 mkdir -p $HOME/.vim_undo
@@ -81,6 +82,7 @@ ln -s $DOT_FILES_PATH/.vim/config/plugins $HOME/.vim/config/
 ln -s $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.vim/dein/dein.toml
 ln -s $DOT_FILES_PATH/.vim/dein/dein_lazy.toml $HOME/.vim/dein/dein_lazy.toml
 ln -s $DOT_FILES_PATH/.vim/after/indent/*.vim $HOME/.vim/after/indent/
+ln -s $DOT_FILES_PATH/.vim/ftdetect/*.vim $HOME/.vim/ftdetect/
 ln -s $DOT_FILES_PATH/.cheatsheet.md $HOME/.cheatsheet.md
 
 if [ ! -e $HOME/.vim/pack/themes/opt/vim-solarized8 ]; then

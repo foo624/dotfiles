@@ -147,8 +147,7 @@ repo = 'tpope/vim-endwise'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-  "nmap <silent> <Leader>gs :<C-u>Gstatus<CR>
-  nnoremap <silent> <Leader>gs :<C-u>Gstatus<CR>
+  nnoremap <silent> <Leader>gs :<C-u>Git<CR>
 '''
 
 [[plugins]]
