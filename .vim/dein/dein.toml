@@ -30,6 +30,9 @@ repo = 'Shougo/denite.nvim'
 hook_add = 'source ~/.vim/config/plugins/plugins-denite.vim'
 
 [[plugins]]
+repo = 'Shougo/neco-vim'
+
+[[plugins]]
 repo = 'Shougo/deol.nvim'
 if   = '''has('unix')'''
 

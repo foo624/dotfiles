@@ -80,6 +80,37 @@ call ddc#custom#patch_global('sourceOptions', {
       \ 'neosnippet': {'mark': 'ns', 'dup': v:true},
       \ })
 
+" https://github.com/Shougo/neco-vim
+call ddc#custom#patch_filetype(
+    \ ['vim', 'toml'], 'sources', ['necovim'])
+call ddc#custom#patch_global('sourceOptions', {
+    \ 'necovim': {'mark': 'vim'},
+    \ })
+
+" https://github.com/Shougo/pum.vim
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+call ddc#custom#patch_global('autoCompleteEvents',
+    \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
+cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+cnoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+cnoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
+cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+nnoremap :       <Cmd>call CommandlinePre()<CR>:
+function! CommandlinePre() abort
+  " Overwrite sources
+  let s:prev_buffer_config = ddc#custom#get_buffer()
+  call ddc#custom#patch_buffer('sources', ['necovim', 'around'])
+  autocmd User DDCCmdlineLeave ++once call CommandlinePost()
+  " Enable command line completion
+  call ddc#enable_cmdline_completion()
+endfunction
+function! CommandlinePost() abort
+  " Restore sources
+  call ddc#custom#set_buffer(s:prev_buffer_config)
+endfunction
+
 " Mappings
 
 "  " <TAB>: completion.
