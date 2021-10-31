@@ -9,15 +9,6 @@ hook_source = 'source ~/.vim/config/plugins/plugins-defx.vim'
 repo = 'fatih/vim-go'
 on_ft = 'go'
 
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-on_ft = 'go'
-depends = ['deoplete.nvim']
-hook_source = '''
-    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-'''
-
 [[plugins]] # toml syntax
 repo = 'cespare/vim-toml'
 on_ft = ['toml']

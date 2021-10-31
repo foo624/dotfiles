@@ -4,6 +4,28 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/ddc.vim'
+hook_add = 'source ~/.vim/config/plugins/plugins-ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = 'source ~/.vim/config/plugins/plugins-denite.vim'
 
@@ -12,9 +34,10 @@ repo = 'Shougo/deol.nvim'
 if   = '''has('unix')'''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = 'source ~/.vim/config/plugins/plugins-deoplete.vim'
-if   = '''800 <= v:version'''
+repo = 'Shougo/pum.vim'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-file'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -37,7 +60,7 @@ repo = 'Shougo/neco-syntax'
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet.vim'
 hook_add = 'source ~/.vim/config/plugins/plugins-neosnippet.vim'
 
 [[plugins]]
@@ -47,20 +70,10 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
-repo = 'Shougo/neoinclude.vim'
-
-[[plugins]]
 repo = 'Shougo/vinarise'
 
 [[plugins]]
 repo = '5t111111/denite-rails'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-if   = '''has('unix')'''
-rev = 'next'
-build = 'bash install.sh'
-hook_add = 'source ~/.vim/config/plugins/plugins-LanguageClient-neovim.vim'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -116,27 +129,15 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'neovim/nvim-lspconfig'
+hook_add = 'source ~/.vim/config/plugins/plugins-lspconfig.vim'
+
+[[plugins]]
 repo = 'reireias/vim-cheatsheet'
 hook_add = '''
   let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
   nnoremap <silent> <Leader>md :<C-u>Cheat<CR>
 '''
-
-[[plugins]]
-repo = 'taka84u9/vim-ref-ri'
-
-[[plugins]]
-repo = 'thinca/vim-openbuf'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-
-[[plugins]]
-repo = 'thinca/vim-ref'
-
-[[plugins]]
-repo = 'tpope/vim-bundler'
-if   = '''has('unix')'''
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
@@ -153,26 +154,11 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-## for solargraph
-## gem install solargraph
-## pip install solargraph-utils.py --user
-##
-## yard gems 
-## yard config --gem-install-yri 
-#[[plugins]]
-#repo = 'uplus/deoplete-solargraph'
-#if   = '''has('unix')'''
+[[plugins]]
+repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'zchee/deoplete-clang'
-if   = '''has('unix')'''
-hook_add = '''
-  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so'
-  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
-'''
 
 # vim-scripts
 [[plugins]]
@@ -184,4 +170,3 @@ repo = 'vim-scripts/matchit.zip'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = 'source ~/.vim/config/plugins/plugins-ale.vim'
-

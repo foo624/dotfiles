@@ -55,8 +55,8 @@ if (v:version > 704 || (v:version == 704 && has('patch314')))
 endif
 
 " タブ
-set shiftwidth=2
-set softtabstop=2
+set tabstop=2
+set shiftwidth=0
 set expandtab
 
 " 行番号を非表示 (number:表示)

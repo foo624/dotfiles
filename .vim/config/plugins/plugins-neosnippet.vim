@@ -27,5 +27,5 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-" for LanguageClient-neovim
+let g:neosnippet#enable_completed_snippet = 1
 let g:neosnippet#enable_complete_done = 1

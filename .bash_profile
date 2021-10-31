@@ -10,15 +10,15 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+  fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+  PATH="$HOME/bin:$PATH"
 fi
 
 # Environment Setting
@@ -26,7 +26,18 @@ LD_LIBRARY_PATH="/usr/local/lib":$LD_LIBRARY_PATH
 
 # ccache
 if [ -d "/usr/lib/ccache" ] ; then
-	PATH=/usr/lib/ccache:$PATH
+  PATH=/usr/lib/ccache:$PATH
+fi
+
+# neovim
+if [ -d "$HOME/.local_nvim" ] ; then
+  PATH=$HOME/.local_nvim/bin:$PATH
+fi
+
+# deno
+if [ -d "$HOME/.deno" ] ; then
+  export DENO_INSTALL="$HOME/.deno"
+  export PATH="$DENO_INSTALL/bin:$PATH"
 fi
 
 # golang
@@ -36,4 +47,9 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# pip3
+if [ -d "$HOME/.local" ] ; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 
