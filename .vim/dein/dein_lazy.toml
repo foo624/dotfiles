@@ -13,10 +13,6 @@ on_ft = 'go'
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
-[[plugins]] # fish syntax
-repo = 'dag/vim-fish'
-on_ft = ['fish']
-
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
 on_ft = ['javascript']

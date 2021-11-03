@@ -124,6 +124,9 @@ hook_add = '''
 repo = 'maximbaz/lightline-ale'
 
 [[plugins]]
+repo = 'mbbill/undotree'
+
+[[plugins]]
 repo = 'mrtazz/DoxygenToolkit.vim'
 hook_add = '''
   let g:DoxygenToolkit_paramTag_pre = "@param [in]	"
@@ -173,3 +176,7 @@ repo = 'vim-scripts/matchit.zip'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = 'source ~/.vim/config/plugins/plugins-ale.vim'
+
+[[plugins]] # fish syntax
+repo = 'khaveesh/vim-fish-syntax'
+on_ft = ['fish']

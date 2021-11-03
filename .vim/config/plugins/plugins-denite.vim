@@ -99,7 +99,7 @@ nnoremap <silent> [denite]/ :<C-u>Denite -start-filter line<CR>
 if has("unix")
   nnoremap <silent> [denite]t :<C-u>Deol<CR>
 endif
-nnoremap <silent> [denite]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nnoremap <silent> [denite]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
 
 nnoremap <silent> [denite]G  :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
 nnoremap <silent> [denite]gg :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>

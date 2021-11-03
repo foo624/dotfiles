@@ -7,3 +7,7 @@ GTAGS
 NordicSemiconductor/
 
 doxygen/html
+
+# clangd
+.clangd
+compile_commands.json

@@ -44,12 +44,21 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# # rbenv
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # pip3
 if [ -d "$HOME/.local" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
+# nodejs
+if [ -d "$HOME/.local_nodejs" ] ; then
+  export PATH="$HOME/.local_nodejs/bin:$PATH"
+fi
+
+# yarn
+if [ -d "$HOME/.yarn" ] ; then
+  export PATH="$HOME/.yarn/bin:$PATH"
+fi

@@ -30,8 +30,17 @@ set -U fish_user_paths $DENO_INSTALL/bin $fish_user_paths
 
 ## fisher
 
+### install
+
 - <https://github.com/jorgebucaran/fisher>
 
 ```bash
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+```
+
+### plugin
+
+```bash
+cp $HOME/.dotfiles/.config/fish/fish_plugins $HOEM/.config/fish/fish_plugins
+fisher update
 ```

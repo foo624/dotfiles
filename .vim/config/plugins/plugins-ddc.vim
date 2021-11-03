@@ -4,7 +4,7 @@
 
 " Customize global settings
 " Use around source.
-call ddc#custom#patch_global('sources', ['around', 'nvim-lsp', 'cmdline', 'cmdline-history', 'file', 'neosnippet'])
+call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'cmdline', 'cmdline-history', 'file', 'neosnippet'])
 
 " Use matcher_head and sorter_rank.
 " https://github.com/Shougo/ddc-matcher_head
@@ -85,6 +85,11 @@ call ddc#custom#patch_filetype(
     \ ['vim', 'toml'], 'sources', ['necovim'])
 call ddc#custom#patch_global('sourceOptions', {
     \ 'necovim': {'mark': 'vim'},
+    \ })
+
+call ddc#custom#patch_filetype(['deol'], 'sources', ['shell-history'])
+call ddc#custom#patch_global('sourceOptions', {
+    \ 'shell-history': {'mark': 'shell'},
     \ })
 
 " https://github.com/Shougo/pum.vim

@@ -1,3 +1,5 @@
+[include]
+	path = ~/.gitconfig.local
 [color]
 	ui = auto
 [alias]
@@ -11,3 +13,8 @@
 	quotepath = false
 [push]
 	default = simple
+[merge]
+	ff = false
+	ff = false
+[pull]
+	ff = only

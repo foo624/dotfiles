@@ -13,8 +13,17 @@ umask 022
 
 ## 環境変数の設定
 
+# for rootless docker
+#export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
+
 # Editor setting for 'crontab -e'
-export EDITOR=nvim
+if [ -x $HOME/.local_nvim/bin/nvim ]; then
+  export EDITOR=$HOME/.local_nvim/bin/nvim
+  export SUDO_EDITOR=$HOME/.local_nvim/bin/nvim
+else
+  export EDITOR=nvim
+  export SUDO_EDITOR=nvim
+fi
 
 ## history
 function share_history {
@@ -34,7 +43,7 @@ shopt -u histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=10000
-HISTIGNORE=cd*:ls:ll:history*:exit:logout:w
+HISTIGNORE=cd*:ls:ll:fg*:bg*:history*:exit:logout:w
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -140,6 +149,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# 作業ディレクトリに変更があるときに表示を追加する
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 git_branch() {
 	__git_ps1 ' (git:%s)'

@@ -1,3 +1,6 @@
+# fzf command for bash.
+
+export FZF_DEFAULT_OPTS="--height 40% --reverse"
 
 fcd() {
   if [[ -z "$*" ]]; then
@@ -39,4 +42,3 @@ fco() {
         --ansi) || return
   git checkout $(awk '{print $2}' <<<"$target" )
 }
-

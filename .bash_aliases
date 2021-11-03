@@ -10,6 +10,10 @@ alias rm='rm -iv'
 alias df='df -h'
 alias du='du -hc'
 
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u '
+fi
+
 alias euc2sjis='iconv -f euc-jp -t sjis'
 alias euc2utf='iconv -f euc-jp -t utf-8'
 alias sjis2euc='iconv -f sjis -t euc-jp'

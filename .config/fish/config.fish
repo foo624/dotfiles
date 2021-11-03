@@ -2,7 +2,13 @@
 eval (dircolors -c ~/.dircolors)
 
 # env
-set -x SUDO_EDITOR nvim
+if test -x ~/.local_nvim/bin/nvim
+  set -x SUDO_EDITOR ~/.local_nvim/bin/nvim
+  set -x EDITOR ~/.local_nvim/bin/nvim
+else
+  set -x SUDO_EDITOR nvim
+  set -x EDITOR nvim
+end
 
 # alias
 #alias la='ls -ah'

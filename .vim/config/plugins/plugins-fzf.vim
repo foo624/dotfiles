@@ -61,7 +61,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 if has("unix")
   nnoremap <silent> [fzf]t :<C-u>Deol<CR>
 endif
-nnoremap <silent> [fzf]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nnoremap <silent> [fzf]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
 
 nnoremap <silent> [fzf]y :<C-u>Denite -start-filter neoyank<CR>
 
