@@ -154,6 +154,15 @@ endif
 let g:solarized_italics=0
 colorscheme solarized8
 
+" active and non-active color
+augroup ChangeBackground
+  autocmd!
+  autocmd WinEnter * highlight Normal guibg=default
+  autocmd WinEnter * highlight NormalNC guibg='#073642'
+  autocmd FocusGained * highlight Normal guibg=default
+  autocmd FocusLost * highlight Normal guibg='#073642'
+augroup END
+
 "---------------------------------------------------------------------------
 " 検索動作関連
 "
