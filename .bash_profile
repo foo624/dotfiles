@@ -22,16 +22,16 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Environment Setting
-LD_LIBRARY_PATH="/usr/local/lib":$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="/usr/local/lib":$LD_LIBRARY_PATH
 
 # ccache
 if [ -d "/usr/lib/ccache" ] ; then
-  PATH=/usr/lib/ccache:$PATH
+  export PATH=/usr/lib/ccache:$PATH
 fi
 
 # neovim
 if [ -d "$HOME/.local_nvim" ] ; then
-  PATH=$HOME/.local_nvim/bin:$PATH
+  export PATH=$HOME/.local_nvim/bin:$PATH
 fi
 
 # deno

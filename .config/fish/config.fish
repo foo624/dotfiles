@@ -10,6 +10,23 @@ else
   set -x EDITOR nvim
 end
 
+set -x LD_LIBRARY_PATH /usr/local/lib
+
+fish_add_path $HOME/.local/bin
+
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+fish_add_path /usr/local/go/bin $GOBIN
+
+set -x NVIM_INSTALL $HOME/.local_nvim
+fish_add_path $NVIM_INSTALL/bin
+
+set -x FZF_INSTALL $HOME/.fzf
+fish_add_path $FZF_INSTALL/bin
+
+set -x DENO_INSTALL $HOME/.deno
+fish_add_path $DENO_INSTALL/bin
+
 # alias
 #alias la='ls -ah'
 #alias ll='ls -lh'
@@ -51,4 +68,3 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 
 # for fzf default option
 set -U FZF_DEFAULT_OPTS "--height 40% --reverse"
-
