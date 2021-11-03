@@ -54,6 +54,13 @@ if [ ! -e $HOME/.bin/z/z.sh ]; then
   git clone https://github.com/rupa/z.git $HOME/.bin/z
 fi
 
+# byobu
+mkdir -p $HOME/.byobu
+if [ ! -L $HOME/.byobu/.tmux.conf ]; then
+  mv $HOME/.byobu/.tmux.conf $HOME/.byobu/.tmux.conf.dotfiles
+fi
+ln -sf $DOT_FILES_PATH/.byobu/.tmux.conf $HOME/.byobu/.tmux.conf
+
 # pt
 mkdir -p $HOME/.config/pt
 ln -sf $DOT_FILES_PATH/.config/pt/config.toml $HOME/.config/pt/config.toml
