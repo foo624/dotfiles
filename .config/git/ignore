@@ -11,3 +11,6 @@ doxygen/html
 # clangd
 .clangd
 compile_commands.json
+
+# vscode
+.vscode

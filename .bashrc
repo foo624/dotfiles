@@ -162,3 +162,5 @@ git_branch() {
 [ -f ~/.bashrc.fzf ] && source ~/.bashrc.fzf
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local

@@ -158,9 +158,9 @@ colorscheme solarized8
 augroup ChangeBackground
   autocmd!
   autocmd WinEnter * highlight Normal guibg=default
-  autocmd WinEnter * highlight NormalNC guibg='#073642'
+  autocmd WinEnter * highlight NormalNC guibg='#303030'
   autocmd FocusGained * highlight Normal guibg=default
-  autocmd FocusLost * highlight Normal guibg='#073642'
+  autocmd FocusLost * highlight Normal guibg='#303030'
 augroup END
 
 "---------------------------------------------------------------------------

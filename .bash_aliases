@@ -11,7 +11,7 @@ alias df='df -h'
 alias du='du -hc'
 
 if [[ -x `which colordiff` ]]; then
-  alias diff='colordiff -u '
+  alias diff='colordiff -u'
 fi
 
 alias euc2sjis='iconv -f euc-jp -t sjis'

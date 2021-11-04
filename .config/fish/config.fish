@@ -67,4 +67,4 @@ set fish_color_match red
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 # for fzf default option
-set -U FZF_DEFAULT_OPTS "--height 40% --reverse"
+set -U FZF_DEFAULT_OPTS "--height 20% --layout=default"

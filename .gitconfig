@@ -15,6 +15,5 @@
 	default = simple
 [merge]
 	ff = false
-	ff = false
 [pull]
 	ff = only

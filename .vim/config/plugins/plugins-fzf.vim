@@ -4,6 +4,8 @@
 " fzf.vim - インクリメンタルサーチで絞り込み
 "
 
+let $FZF_DEFAULT_OPTS="--layout=reverse"
+
 set rtp+=~/.fzf
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
