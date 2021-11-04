@@ -54,6 +54,7 @@ alias utf2euc='iconv -f utf-8 -t euc-jp'
 alias utf2sjis='iconv -f utf-8 -t sjis'
 
 alias vi=vim
+alias vim=nvim
 
 alias vncstart='vncserver -geometry 1440x900 -depth 24'
 alias vncend='vncserver -kill :1'
@@ -68,3 +69,10 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 
 # for fzf default option
 set -U FZF_DEFAULT_OPTS "--height 20% --layout=default"
+
+# fish-colored-man
+# Solarized Dark & Green highlight
+set -g man_blink -o red
+set -g man_bold green
+set -g man_standout -b black 93a1a1
+set -g man_underline -u 93a1a1

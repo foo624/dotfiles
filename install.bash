@@ -72,7 +72,7 @@ ln -sf $DOT_FILES_PATH/.config/git/ignore $HOME/.config/git/ignore
 # fish
 mkdir -p $HOME/.config/fish
 ln -sf $DOT_FILES_PATH/.config/fish/config.fish $HOME/.config/fish/config.fish
-# ln -sf $DOT_FILES_PATH/.config/fish/fish_plugins $HOME/.config/fish/fish_plugins
+ln -sf $DOT_FILES_PATH/.config/fish/fish_plugins $HOME/.config/fish/fish_plugins
 
 mkdir -p $HOME/.config/fish/functions
 ln -sf $DOT_FILES_PATH/.config/fish/functions/*.fish $HOME/.config/fish/functions/
