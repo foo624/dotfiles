@@ -10,6 +10,20 @@ else
   set -x EDITOR nvim
 end
 
+# for fzf key binding
+set -U FZF_LEGACY_KEYBINDINGS 0
+
+# for fzf default option
+set -x FZF_DEFAULT_OPTS "--height 20% --layout=default"
+
+# fish-colored-man
+# Solarized Dark & Green highlight
+set -g man_blink -o red
+set -g man_bold green
+set -g man_standout -b black 93a1a1
+set -g man_underline -u 93a1a1
+
+# path
 set -x LD_LIBRARY_PATH /usr/local/lib
 
 fish_add_path $HOME/.local/bin
@@ -46,33 +60,42 @@ else
   alias diff='diff -u --color=always'
 end
 
-alias euc2sjis='iconv -f euc-jp -t sjis'
-alias euc2utf='iconv -f euc-jp -t utf-8'
-alias sjis2euc='iconv -f sjis -t euc-jp'
-alias sjis2utf='iconv -f sjis -t utf-8'
-alias utf2euc='iconv -f utf-8 -t euc-jp'
-alias utf2sjis='iconv -f utf-8 -t sjis'
+# abbr
+abbr --add . 'cd ../'
+abbr --add .. 'cd ../../'
+abbr --add ... 'cd ../../../'
+abbr --add .2 'cd ../../'
+abbr --add .3 'cd ../../../'
+abbr --add .4 'cd ../../../../'
 
-alias vi=vim
-alias vim=nvim
+abbr --add abe 'for a in (abbr --list); abbr --erase $a; end'
+abbr --add abf 'abbr | fzf'
 
-alias vncstart='vncserver -geometry 1440x900 -depth 24'
-alias vncend='vncserver -kill :1'
+abbr --add bs 'bass source'
 
-alias be='bundle exec'
+abbr --add sai 'sudo apt install'
+abbr --add sau 'sudo apt update'
+abbr --add saug 'sudo apt upgrade'
+abbr --add saa 'sudo apt autoremove'
+abbr --add sas 'sudo apt search'
+abbr --add sash 'sudo apt show'
+abbr --add as 'apt search'
+abbr --add ash 'apt show'
 
-# for fisherman color
-set fish_color_match red
+abbr --add psf 'ps aux | fzf'
 
-# for fzf key binding
-set -U FZF_LEGACY_KEYBINDINGS 0
+abbr --add py 'python3'
 
-# for fzf default option
-set -U FZF_DEFAULT_OPTS "--height 20% --layout=default"
+abbr --add vi nvim
+abbr --add vim nvim
+abbr --add be 'bundle exec'
 
-# fish-colored-man
-# Solarized Dark & Green highlight
-set -g man_blink -o red
-set -g man_bold green
-set -g man_standout -b black 93a1a1
-set -g man_underline -u 93a1a1
+abbr --add vncstart 'vncserver -geometry 1440x900 -depth 24'
+abbr --add vncend 'vncserver -kill :1'
+
+abbr --add euc2sjis 'iconv -f euc-jp -t sjis'
+abbr --add euc2utf 'iconv -f euc-jp -t utf-8'
+abbr --add sjis2euc 'iconv -f sjis -t euc-jp'
+abbr --add sjis2utf 'iconv -f sjis -t utf-8'
+abbr --add utf2euc 'iconv -f utf-8 -t euc-jp'
+abbr --add utf2sjis 'iconv -f utf-8 -t sjis'
