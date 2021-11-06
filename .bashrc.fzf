@@ -1,6 +1,6 @@
 # fzf command for bash.
 
-export FZF_DEFAULT_OPTS="--height 40% --reverse"
+export FZF_DEFAULT_OPTS="--height 20% --layout=default"
 
 fcd() {
   if [[ -z "$*" ]]; then

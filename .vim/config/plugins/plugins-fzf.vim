@@ -69,9 +69,8 @@ nnoremap <silent> [fzf]y :<C-u>FZFNeoyank<CR>
 nnoremap <silent> [fzf]Y :<C-u>FZFNeoyank " P<CR>
 vnoremap <silent> [fzf]y :<C-u>FZFNeoyankSelection<CR>
 
-" for golang
-augroup MyDeniteMap
-  autocmd!
-  autocmd FileType go nnoremap <buffer> <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline decls<CR>
-augroup END
-
+" " for golang
+" augroup MyDeniteMap
+"   autocmd!
+"   autocmd FileType go nnoremap <buffer> <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline decls<CR>
+" augroup END
