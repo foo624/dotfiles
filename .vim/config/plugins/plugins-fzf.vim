@@ -65,7 +65,9 @@ if has("unix")
 endif
 nnoremap <silent> [fzf]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
 
-nnoremap <silent> [fzf]y :<C-u>Denite -start-filter neoyank<CR>
+nnoremap <silent> [fzf]y :<C-u>FZFNeoyank<CR>
+nnoremap <silent> [fzf]Y :<C-u>FZFNeoyank " P<CR>
+vnoremap <silent> [fzf]y :<C-u>FZFNeoyankSelection<CR>
 
 " for golang
 augroup MyDeniteMap

@@ -60,9 +60,6 @@ hook_add = '''
 repo = 'Shougo/neco-syntax'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_add = 'source ~/.vim/config/plugins/plugins-neosnippet.vim'
 
@@ -74,9 +71,6 @@ repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
 repo = 'Shougo/vinarise'
-
-[[plugins]]
-repo = '5t111111/denite-rails'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -119,6 +113,9 @@ hook_add = '''
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
 '''
+
+[[plugins]]
+repo = 'justinhoward/fzf-neoyank'
 
 [[plugins]]
 repo = 'maximbaz/lightline-ale'
