@@ -94,8 +94,8 @@ call ddc#custom#patch_global('sourceOptions', {
 
 " https://github.com/Shougo/pum.vim
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
-inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
-inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+" inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+" inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
 inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
 inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
