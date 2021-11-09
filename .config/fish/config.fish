@@ -82,7 +82,7 @@ abbr --add sash 'sudo apt show'
 abbr --add as 'apt search'
 abbr --add ash 'apt show'
 
-abbr --add psf 'ps aux | fzf'
+abbr --add psf 'ps aux | fzf --layout=reverse --height 100% --header-lines=1'
 
 abbr --add py 'python3'
 
