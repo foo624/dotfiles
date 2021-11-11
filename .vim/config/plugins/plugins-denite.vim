@@ -12,13 +12,19 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> p        denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> q        denite#do_map('quit')
   nnoremap <silent><buffer><expr> i        denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <C-q>    denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Space>  denite#do_map('toggle_select').'j'
 endfunction
 
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-c> <Plug>(denite_filter_quit)
-  imap <silent><buffer> jj <Plug>(denite_filter_quit)
+  imap <silent><buffer> <C-q> <Plug>(denite_filter_quit)
+  inoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+  inoremap <silent><buffer><expr> <C-j> denite#increment_parent_cursor(1)
+  inoremap <silent><buffer><expr> <C-k> denite#increment_parent_cursor(-1)
+  nnoremap <silent><buffer><expr> <C-j> denite#increment_parent_cursor(1)
+  nnoremap <silent><buffer><expr> <C-k> denite#increment_parent_cursor(-1)
 endfunction
 
 " Change file_rec command.
@@ -58,7 +64,9 @@ call denite#custom#var('file/rec/git', 'command',
 let s:denite_custom_option_default = {
       \ 'split': 'floating',
       \ 'highlight_matched_char': 'Keyword',
-      \ 'highlight_mode_normal': 'TabLine'
+      \ 'highlight_window_background': 'NormalNC',
+      \ 'match_highlight': v:true,
+      \ 'prompt': '>'
       \}
 
 call denite#custom#option('default', s:denite_custom_option_default)
@@ -96,16 +104,16 @@ nnoremap <silent> [denite]c :<C-u>Denite -start-filter command_history<CR>
 nnoremap <silent> [denite]p :<C-u>Denite -start-filter `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
 nnoremap <silent> [denite]/ :<C-u>Denite -start-filter line<CR>
 
-if has("unix")
-  nnoremap <silent> [denite]t :<C-u>Deol<CR>
-endif
-nnoremap <silent> [denite]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
+nnoremap <silent> [denite]t :<C-u>Deol<CR>
+nnoremap <silent> [denite]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
-nnoremap <silent> [denite]G  :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
-nnoremap <silent> [denite]gg :<C-u>DeniteCursorWord grep -buffer-name=search-buffer-denite<CR>
-nnoremap <silent> [denite]gr :<C-u>Denite -resume -buffer_name=search-buffer-denite<CR>
-nnoremap <silent> [denite]gn :<C-u>Denite -resume -immediately -cursor-pos=+1 -buffer_name=search-buffer-denite<CR>
-nnoremap <silent> [denite]gp :<C-u>Denite -resume -immediately -cursor-pos=-1 -buffer_name=search-buffer-denite<CR>
+nnoremap <silent> [denite]g :<C-u>DeniteCursorWord grep -start-filter -buffer-name=search-buffer-denite<CR>
+nnoremap <silent> [denite]G :<C-u>Denite grep -start-filter -buffer-name=search-buffer-denite<CR>
+"nnoremap <silent> [denite]gr :<C-u>Denite -resume -start-filter -buffer_name=search-buffer-denite<CR>
+"nnoremap <silent> [denite]gn :<C-u>Denite -resume -immediately -cursor-pos=+1 -buffer_name=search-buffer-denite<CR>
+"nnoremap <silent> [denite]gp :<C-u>Denite -resume -immediately -cursor-pos=-1 -buffer_name=search-buffer-denite<CR>
+nnoremap <silent> <C-n> :<C-u>Denite -resume -immediately -cursor-pos=+1 -buffer_name=search-buffer-denite<CR>
+nnoremap <silent> <C-p> :<C-u>Denite -resume -immediately -cursor-pos=-1 -buffer_name=search-buffer-denite<CR>
 
 nnoremap [rails] <Nop>
 nmap     <Leader>r [rails]
