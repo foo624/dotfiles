@@ -13,7 +13,7 @@ function fish_prompt -d "Print prompt"
 
   set prompt (set_color green)$USER'@'(hostname | cut -d . -f 1) (set_color yellow)(prompt_pwd)(set_color normal)
 
-  echo ''
+  echo ""
   echo $prompt (fish_git_prompt)
   echo $status_face
 end
