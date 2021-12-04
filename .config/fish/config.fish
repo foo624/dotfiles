@@ -28,18 +28,36 @@ set -x LD_LIBRARY_PATH /usr/local/lib
 
 fish_add_path $HOME/.local/bin
 
-set -x GOPATH $HOME/go
-set -x GOBIN $GOPATH/bin
-fish_add_path /usr/local/go/bin $GOBIN
+if test -d /usr/local/go/bin
+  set -x GOPATH $HOME/go
+  set -x GOBIN $GOPATH/bin
+  fish_add_path /usr/local/go/bin $GOBIN
+end
 
 set -x NVIM_INSTALL $HOME/.local_nvim
-fish_add_path $NVIM_INSTALL/bin
+if test -d $NVIM_INSTALL/bin
+  fish_add_path $NVIM_INSTALL/bin
+end
 
 set -x FZF_INSTALL $HOME/.fzf
-fish_add_path $FZF_INSTALL/bin
+if test -d $FZF_INSTALL/bin
+  fish_add_path $FZF_INSTALL/bin
+end
 
 set -x DENO_INSTALL $HOME/.deno
-fish_add_path $DENO_INSTALL/bin
+if test -d $DENO_INSTALL/bin
+  fish_add_path $DENO_INSTALL/bin
+end
+
+set -x NODEJS_INSTALL $HOME/.local_nodejs
+if test -d $NODEJS_INSTALL/bin
+  fish_add_path $NODEJS_INSTALL/bin
+end
+
+set -x YARN_INSTALL $HOME/.yarn
+if test -d $YARN_INSTALL/bin
+  fish_add_path $YARN_INSTALL/bin
+end
 
 # alias
 #alias la='ls -ah'
@@ -54,7 +72,7 @@ alias rm='rm -iv'
 alias df='df -h'
 alias du='du -hc'
 
-if test -x (which colordiff)
+if test (which colordiff)
   alias diff='colordiff -u'
 else
   alias diff='diff -u --color=always'
