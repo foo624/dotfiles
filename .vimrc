@@ -184,7 +184,7 @@ set hlsearch
 " バックアップファイルを作成しない (次行の先頭の " を削除すれば有効になる)
 "set nobackup
 " バックアップファイルを作る時に以前のファイルを上書きしない
-set nowritebackup
+set backup
 set undofile
 " バックアップ,スワップファイルディレクトリ
 if has('win32')
@@ -192,9 +192,9 @@ if has('win32')
   set directory=~/.vim_backup
   set undodir=~/.vim_undo
 else
-  set backupdir=~/.vim_backup
-  set directory=~/.vim_backup
-  set undodir=~/.vim_undo
+  set backupdir=~/.cache/vim_backup
+  set directory=~/.cache/vim_swap
+  set undodir=~/.cache/vim_undo
 endif
 " パスの区切りをスラッシュに変更
 set shellslash

@@ -85,8 +85,9 @@ mkdir -p $HOME/.vim/config
 mkdir -p $HOME/.vim/dein
 mkdir -p $HOME/.vim/ftdetect
 mkdir -p $HOME/.vim/pack/themes/opt
-mkdir -p $HOME/.vim_backup
-mkdir -p $HOME/.vim_undo
+mkdir -p $HOME/.cache/vim_backup
+mkdir -p $HOME/.cache/vim_swap
+mkdir -p $HOME/.cache/vim_undo
 ln -sf $DOT_FILES_PATH/.vimrc $HOME/.vim/init.vim
 ln -sf $DOT_FILES_PATH/.vim/config/plugins $HOME/.vim/config/
 ln -sf $DOT_FILES_PATH/.vim/dein/dein.toml $HOME/.vim/dein/dein.toml
