@@ -157,7 +157,7 @@ git_branch() {
 	__git_ps1 ' (git:%s)'
 }
 
-[ -f ~/.bin/z/z.sh ] && source ~/.bin/z/z.sh
+[ -f ~/.local/z/z.sh ] && source ~/.local/z/z.sh
 
 [ -f ~/.bashrc.fzf ] && source ~/.bashrc.fzf
 

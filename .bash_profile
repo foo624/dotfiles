@@ -30,14 +30,8 @@ if [ -d "/usr/lib/ccache" ] ; then
 fi
 
 # neovim
-if [ -d "$HOME/.local_nvim" ] ; then
-  export PATH=$HOME/.local_nvim/bin:$PATH
-fi
-
-# deno
-if [ -d "$HOME/.deno" ] ; then
-  export DENO_INSTALL="$HOME/.deno"
-  export PATH="$DENO_INSTALL/bin:$PATH"
+if [ -d "$HOME/.local/nvim" ] ; then
+  export PATH=$HOME/.local/nvim/bin:$PATH
 fi
 
 # golang
@@ -54,8 +48,8 @@ if [ -d "$HOME/.local" ] ; then
 fi
 
 # nodejs
-if [ -d "$HOME/.local_nodejs" ] ; then
-  export PATH="$HOME/.local_nodejs/bin:$PATH"
+if [ -d "$HOME/.local/nodejs" ] ; then
+  export PATH="$HOME/.local/nodejs/bin:$PATH"
 fi
 
 # yarn

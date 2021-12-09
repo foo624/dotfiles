@@ -6,7 +6,7 @@
 
 let $FZF_DEFAULT_OPTS="--layout=reverse"
 
-set rtp+=~/.fzf
+set rtp+=~/.local/fzf
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 if executable('pt')

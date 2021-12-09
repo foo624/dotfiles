@@ -1,14 +1,11 @@
 # dircolor
 eval (dircolors -c ~/.dircolors)
 
-# env
-if test -x ~/.local_nvim/bin/nvim
-  set -x SUDO_EDITOR ~/.local_nvim/bin/nvim
-  set -x EDITOR ~/.local_nvim/bin/nvim
-else
-  set -x SUDO_EDITOR nvim
-  set -x EDITOR nvim
-end
+# XDG Base Directory
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_STATE_HOME $HOME/.local/state
 
 # for fzf key binding
 set -U FZF_LEGACY_KEYBINDINGS 0
@@ -34,22 +31,17 @@ if test -d /usr/local/go/bin
   fish_add_path /usr/local/go/bin $GOBIN
 end
 
-set -x NVIM_INSTALL $HOME/.local_nvim
+set -x NVIM_INSTALL $HOME/.local/nvim
 if test -d $NVIM_INSTALL/bin
   fish_add_path $NVIM_INSTALL/bin
 end
 
-set -x FZF_INSTALL $HOME/.fzf
+set -x FZF_INSTALL $HOME/.local/fzf
 if test -d $FZF_INSTALL/bin
   fish_add_path $FZF_INSTALL/bin
 end
 
-set -x DENO_INSTALL $HOME/.deno
-if test -d $DENO_INSTALL/bin
-  fish_add_path $DENO_INSTALL/bin
-end
-
-set -x NODEJS_INSTALL $HOME/.local_nodejs
+set -x NODEJS_INSTALL $HOME/.local/nodejs
 if test -d $NODEJS_INSTALL/bin
   fish_add_path $NODEJS_INSTALL/bin
 end
@@ -57,6 +49,15 @@ end
 set -x YARN_INSTALL $HOME/.yarn
 if test -d $YARN_INSTALL/bin
   fish_add_path $YARN_INSTALL/bin
+end
+
+# env
+if test -x $NVIM_INSTALL/bin/nvim
+  set -x SUDO_EDITOR $NVIM_INSTALL/bin/nvim
+  set -x EDITOR $NVIM_INSTALL/bin/nvim
+else
+  set -x SUDO_EDITOR nvim
+  set -x EDITOR nvim
 end
 
 # alias

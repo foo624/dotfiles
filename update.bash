@@ -10,8 +10,8 @@ if [ -e $HOME/.dircolors-solarized ]; then
 fi
 
 # z.sh
-if [ -e $HOME/.bin/z/z.sh ]; then
-  pushd $HOME/.bin/z
+if [ -e $HOME/.local/z/z.sh ]; then
+  pushd $HOME/.local/z
   git pull
   popd
 fi
@@ -24,14 +24,14 @@ if [ -e $HOME/.vim/pack/themes/opt/vim-solarized8 ]; then
 fi
 
 # fzf
-if [ -e $HOME/.fzf ]; then
-  pushd $HOME/.fzf
+if type fzf > /dev/null 2>&1; then
+  pushd $HOME/.local/fzf
   git pull
-  $HOME/.fzf/install --all --no-zsh
+  $HOME/.local/fzf/install --all --no-zsh
   popd
 fi
 
 # deno
-if [ -e $HOME/.deno ]; then
+if type deno > /dev/null 2>&1; then
   deno upgrade
 fi
