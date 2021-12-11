@@ -138,7 +138,7 @@ hook_add = 'source ~/.vim/config/plugins/plugins-lspconfig.vim'
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
 hook_add = '''
-  let g:cheatsheet#cheat_file = '~/.cheatsheet.md'
+  let g:cheatsheet#cheat_file = '~/.local/state/nvim/cheatsheet.md'
   nnoremap <silent> <Leader>md :<C-u>Cheat<CR>
 '''
 

@@ -191,10 +191,14 @@ if has('win32')
   set backupdir=~/.vim_backup
   set directory=~/.vim_backup
   set undodir=~/.vim_undo
+elseif has('nvim')
+  set backupdir=$XDG_DATA_HOME/nvim/backup//
+  set directory=$XDG_DATA_HOME/nvim/swap//
+  set undodir=$XDG_DATA_HOME/nvim/undo//
 else
-  set backupdir=~/.cache/vim_backup
-  set directory=~/.cache/vim_swap
-  set undodir=~/.cache/vim_undo
+  set backupdir=$XDG_DATA_HOME/vim/backup//
+  set directory=$XDG_DATA_HOME/vim/swap//
+  set undodir=$XDG_DATA_HOME/vim/undo//
 endif
 " パスの区切りをスラッシュに変更
 set shellslash

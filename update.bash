@@ -3,8 +3,8 @@
 set -u
 
 # dircolors solarized
-if [ -e $HOME/.dircolors-solarized ]; then
-  pushd $HOME/.dircolors-solarized
+if [ -e $HOME/.local/dircolors-solarized ]; then
+  pushd $HOME/.local/dircolors-solarized
   git pull
   popd
 fi
@@ -27,7 +27,7 @@ fi
 if type fzf > /dev/null 2>&1; then
   pushd $HOME/.local/fzf
   git pull
-  $HOME/.local/fzf/install --all --no-zsh
+  $HOME/.local/fzf/install --all --xdg --no-zsh
   popd
 fi
 

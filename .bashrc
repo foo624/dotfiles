@@ -16,16 +16,23 @@ umask 022
 # for rootless docker
 #export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
 
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
 # Editor setting for 'crontab -e'
-if [ -x $HOME/.local_nvim/bin/nvim ]; then
-  export EDITOR=$HOME/.local_nvim/bin/nvim
-  export SUDO_EDITOR=$HOME/.local_nvim/bin/nvim
+if [ -x $HOME/.local/nvim/bin/nvim ]; then
+  export EDITOR=$HOME/.local/nvim/bin/nvim
+  export SUDO_EDITOR=$HOME/.local/nvim/bin/nvim
 else
   export EDITOR=nvim
   export SUDO_EDITOR=nvim
 fi
 
 ## history
+export HISTFILE=$XDG_STATE_HOME/bash/history
+
 function share_history {
 	history -a
 	history -c
@@ -108,7 +115,7 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r $XDG_CONFIG_HOME/dircolors && eval "$(dircolors -b $XDG_CONFIG_HOME/dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -135,8 +142,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ${XDG_CONFIG_HOME-$HOME/.config}/bash/aliases.bash ]; then
+  source ${XDG_CONFIG_HOME-$HOME/.config}/bash/aliases.bash
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -159,8 +166,8 @@ git_branch() {
 
 [ -f ~/.local/z/z.sh ] && source ~/.local/z/z.sh
 
-[ -f ~/.bashrc.fzf ] && source ~/.bashrc.fzf
+[ -f ${XDG_CONFIG_HOME-$HOME/.config}/bash/fzf_cmd.bash ] && source ${XDG_CONFIG_HOME-$HOME/.config}/bash/fzf_cmd.bash
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ${XDG_CONFIG_HOME-$HOME/.config}/bash/bashrc.local.bash ] && source ${XDG_CONFIG_HOME-$HOME/.config}/bash/bashrc.local.bash
 
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash

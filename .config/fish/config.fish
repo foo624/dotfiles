@@ -1,6 +1,3 @@
-# dircolor
-eval (dircolors -c ~/.dircolors)
-
 # XDG Base Directory
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
@@ -12,6 +9,9 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 
 # for fzf default option
 set -x FZF_DEFAULT_OPTS "--height 20% --layout=default"
+
+# dircolor
+eval (dircolors -c $XDG_CONFIG_HOME/dircolors)
 
 # fish-colored-man
 # Solarized Dark & Green highlight
