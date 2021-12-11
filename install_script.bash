@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -eu
-set -f
 
 script_file=${1}
 base_dir=${2}
@@ -90,10 +89,10 @@ function link_file() {
 # link_files
 #
 #   pathname: target path name
-#   filename: target file name
+#   extension: target file name extension
 function link_files() {
   pathname=${1}
-  filename=${2}
+  extension=${2}
 
   if [[ ${pathname} == "." ]]; then
     source_dir=${script_dir}
@@ -102,17 +101,14 @@ function link_files() {
     source_dir=${script_dir}/${pathname}
     target_dir=${base_dir}/${pathname}
   fi
-  source_file=${source_dir}/${filename}
-  target_file=${target_dir}/${filename}
-
-  if [ ! -d ${target_dir} ]; then
-    make_directory ${pathname}
-  fi
+  source_file=${source_dir}/*${extension}
 
   echo "links ${source_file} ${target_dir}"
-  set +f
-  ln -sf ${source_file} ${target_dir}
-  set -f
+  files=`find ${source_dir} -type f -name "*${extension}" -print0 | xargs -0 basename -a`
+  for f in ${files}; do
+    link_file ${pathname} ${f}
+  done
+
 }
 
 # git_clone

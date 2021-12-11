@@ -1,3 +1,11 @@
+# installer
+
+## require
+
+- curl
+- git
+- unzip
+
 # fish
 
 ## PATH
@@ -27,6 +35,5 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ### plugin
 
 ```bash
-cp $HOME/.dotfiles/.config/fish/fish_plugins $HOEM/.config/fish/fish_plugins
 fisher update
 ```
