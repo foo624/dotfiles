@@ -63,6 +63,6 @@ link .local/state/nvim cheatsheet.md
 
 # git
 git https://github.com/seebi/dircolors-solarized.git .local/dircolors-solarized
-git https://github.com/rupa/z.git .local/z/z.sh
+git https://github.com/rupa/z.git .local/z
 git https://github.com/lifepillar/vim-solarized8.git .vim/pack/themes/opt/vim-solarized8
 git https://github.com/junegunn/fzf.git .local/fzf

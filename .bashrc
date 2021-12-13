@@ -166,8 +166,8 @@ git_branch() {
 
 [ -f ~/.local/z/z.sh ] && source ~/.local/z/z.sh
 
-[ -f ${XDG_CONFIG_HOME-$HOME/.config}/bash/fzf_cmd.bash ] && source ${XDG_CONFIG_HOME-$HOME/.config}/bash/fzf_cmd.bash
+[ -f "${XDG_CONFIG_HOME-$HOME/.config}"/bash/fzf_cmd.bash ] && source "${XDG_CONFIG_HOME-$HOME}"/.config}/bash/fzf_cmd.bash
 
-[ -f ${XDG_CONFIG_HOME-$HOME/.config}/bash/bashrc.local.bash ] && source ${XDG_CONFIG_HOME-$HOME/.config}/bash/bashrc.local.bash
+[ -f "${XDG_CONFIG_HOME-$HOME/.config}"/bash/local.bash ] && source "${XDG_CONFIG_HOME-$HOME}"/.config}/bash/local.bash
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
