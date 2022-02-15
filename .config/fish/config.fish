@@ -40,6 +40,7 @@ abbr --add as 'apt search'
 abbr --add ash 'apt show'
 
 abbr --add psf 'ps aux | fzf --layout=reverse --height 100% --header-lines=1'
+abbr --add psuf 'ps u | fzf --layout=reverse --height 100% --header-lines=1'
 
 abbr --add py 'python3'
 
