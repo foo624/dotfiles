@@ -11,7 +11,12 @@ function fish_prompt -d "Print prompt"
   set -g __fish_git_prompt_showstashstate 'yes'
   set -g __fish_git_prompt_showuntrackedfiles 'yes'
 
-  set prompt (set_color green)$USER'@'(hostname | cut -d . -f 1) (set_color yellow)(prompt_pwd)(set_color normal)
+  set -l _fish_color_prompt_name green
+  if set -q fish_color_prompt_name
+    set _fish_color_prompt_name $fish_color_prompt_name
+  end
+
+  set prompt (set_color $_fish_color_prompt_name)$USER'@'(hostname | cut -d . -f 1) (set_color yellow)(prompt_pwd)(set_color normal)
 
   echo ""
   echo $prompt (fish_git_prompt)

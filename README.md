@@ -37,3 +37,12 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ```bash
 fisher update
 ```
+
+### configuration
+
+#### prompt color
+
+```
+set -U fish_color_prompt_name green
+```
+
