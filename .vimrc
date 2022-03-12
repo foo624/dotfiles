@@ -349,6 +349,7 @@ else
 endif
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let s:toml      = s:dein_dir . '/dein.toml'
+let s:toml_ddc  = s:dein_dir . '/dein_ddc.toml'
 let s:toml_lazy = s:dein_dir . '/dein_lazy.toml'
 
 " git process
@@ -369,6 +370,7 @@ if dein#load_state(s:dein_dir)
 
   " tomlファイルを読み込み
   call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:toml_ddc,  {'lazy': 0})
   call dein#load_toml(s:toml_lazy, {'lazy': 1})
 
   " 設定終了

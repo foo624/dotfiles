@@ -1,0 +1,36 @@
+# vim:set et ts=2 sts=2 sw=2 tw=0 fdm=marker:
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+hook_add = 'source ~/.vim/config/plugins/plugins-ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+hook_add = 'source ~/.vim/config/plugins/plugins-neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-file'

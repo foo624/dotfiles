@@ -51,17 +51,14 @@ mkdir .local/share/vim/undo
 links .vim/after/indent .vim
 links .vim/config/plugins .vim
 links .vim/ftdetect .vim
-link .vim/dein dein.toml
-link .vim/dein dein_lazy.toml
+links .vim/dein .toml
 
 # nvim
-mkdir .config/dein
+mkdir .cache/dein
 mkdir .local/share/nvim/backup
 mkdir .local/share/nvim/swap
 mkdir .local/share/nvim/undo
 mkdir .local/state/nvim
-link .config/dein dein.toml
-link .config/dein dein_lazy.toml
 link .local/state/nvim cheatsheet.md
 
 # git
