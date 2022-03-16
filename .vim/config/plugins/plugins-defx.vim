@@ -78,6 +78,6 @@ call defx#custom#option('_', {
       \ 'buffer_name': 'exlorer',
       \ 'vertical_preview': 1,
       \ 'preview_width': 80,
-      \ 'toggle': 1,
+      \ 'toggle': 0,
       \ 'resume': 1,
       \ })
