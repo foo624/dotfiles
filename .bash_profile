@@ -48,8 +48,8 @@ if [ -d "$HOME/.local" ] ; then
 fi
 
 # nodejs
-if [ -d "$HOME/.local/nodejs" ] ; then
-  export PATH="$HOME/.local/nodejs/bin:$PATH"
+if [ -d "$HOME/.local/node" ] ; then
+  export PATH="$HOME/.local/node/bin:$PATH"
 fi
 
 # yarn

@@ -41,9 +41,9 @@ if test -d $FZF_INSTALL/bin
   fish_add_path $FZF_INSTALL/bin
 end
 
-set -x NODEJS_INSTALL $HOME/.local/nodejs
-if test -d $NODEJS_INSTALL/bin
-  fish_add_path $NODEJS_INSTALL/bin
+set -x NODE_INSTALL $HOME/.local/node
+if test -d $NODE_INSTALL/bin
+  fish_add_path $NODE_INSTALL/bin
 end
 
 set -x YARN_INSTALL $HOME/.yarn
