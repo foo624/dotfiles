@@ -26,6 +26,10 @@ link .config/git ignore
 # tig
 mkdir .local/share/tig
 
+# pyls
+link .config flake8
+link .config pycodestyle
+
 # fish
 mkdir .config/fish
 link .config/fish config.fish

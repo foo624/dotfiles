@@ -7,7 +7,16 @@ require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.cmake.setup{}
 require'lspconfig'.jsonls.setup{}
-require'lspconfig'.pylsp.setup{}
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      configurationSources = { "pycodestyle", "flake8" },
+      plugins = {
+        flake8 = { enabled = 1 },
+      },
+    },
+  },
+}
 require'lspconfig'.yamlls.setup{}
 EOF
 
