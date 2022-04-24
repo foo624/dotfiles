@@ -8,7 +8,7 @@ SOURCE_DIR_NAME=`basename ${SOURCE_FILE_NAME} .tar.xz`
 SOURCE_URL="https://github.com/fish-shell/fish-shell/releases/download/${VERSION}/${SOURCE_FILE_NAME}"
 
 function download_app() {
-  wget ${SOURCE_URL}
+  curl -OL ${SOURCE_URL}
 }
 
 function expansion_app() {

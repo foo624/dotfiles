@@ -157,6 +157,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# pylint
+export PYLINTHOME=${XDG_CACHE_HOME}/pylint
+
 # 作業ディレクトリに変更があるときに表示を追加する
 export GIT_PS1_SHOWDIRTYSTATE=1
 

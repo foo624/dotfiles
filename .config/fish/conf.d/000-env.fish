@@ -60,3 +60,6 @@ else
   set -x EDITOR nvim
 end
 
+# pylint
+set -x PYLINTHOME $XDG_CACHE_HOME/pylint
+
