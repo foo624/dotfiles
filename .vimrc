@@ -1,5 +1,8 @@
 " vim:set et ts=2 sts=2 sw=2 tw=0 fdm=marker:
 
+" for vim.tiny
+if !1 | finish | endif
+
 "---------------------------------------------------------------------------
 " 文字コード関連:
 "---------------------------------------------------------------------------
@@ -58,6 +61,9 @@ endif
 set tabstop=2
 set shiftwidth=0
 set expandtab
+
+" 別途プラグインを入れてるのでoffにする
+" set showmatch "括弧入力時の対応する括弧を表示
 
 " 行番号を非表示 (number:表示)
 set number
@@ -188,17 +194,17 @@ set backup
 set undofile
 " バックアップ,スワップファイルディレクトリ
 if has('win32')
-  set backupdir=~/.vim_backup
-  set directory=~/.vim_backup
-  set undodir=~/.vim_undo
+  set backupdir=~/AppData/Local/nvim-data/backup/
+  set directory=~/AppData/Local/nvim-data/swap/
+  set undodir=~/AppData/Local/nvim-data/undo/
 elseif has('nvim')
-  set backupdir=$XDG_DATA_HOME/nvim/backup//
-  set directory=$XDG_DATA_HOME/nvim/swap//
-  set undodir=$XDG_DATA_HOME/nvim/undo//
+  set backupdir=$XDG_DATA_HOME/nvim/backup/
+  set directory=$XDG_DATA_HOME/nvim/swap/
+  set undodir=$XDG_DATA_HOME/nvim/undo/
 else
-  set backupdir=$XDG_DATA_HOME/vim/backup//
-  set directory=$XDG_DATA_HOME/vim/swap//
-  set undodir=$XDG_DATA_HOME/vim/undo//
+  set backupdir=$XDG_DATA_HOME/vim/backup/
+  set directory=$XDG_DATA_HOME/vim/swap/
+  set undodir=$XDG_DATA_HOME/vim/undo/
 endif
 " パスの区切りをスラッシュに変更
 set shellslash
@@ -309,10 +315,10 @@ vnoremap <silent> co :ContinuousNumber <C-a><CR>
 command! -count -nargs=1 ContinuousNumber let c = col('.')|for n in range(1, <count>?<count>-line('.'):1)|exec 'normal! j' . n . <q-args>|call cursor('.', c)|endfor
 
 " 日付入力
-inoremap <silent> <Leader>date <C-R>=strftime('%Y.%m.%d')<CR>
+inoremap <silent> <Leader>date <C-R>=strftime('%Y-%m-%d')<CR>
 
 " smarty
-inoremap <silent> <Leader>ii <!--{}--><C-c>hhhi
+inoremap <silent> <Leader>ii <!--{}--><C-c>3hi
 
 " diffoff
 "nnoremap <silent> <Leader>dd :<C-u>diffoff!<CR>:<C-u>bd<CR>:setl nowrap<CR>
@@ -334,23 +340,25 @@ tnoremap <ESC>   <C-\><C-n>
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 " dein.vim - プラグイン管理ツール neobundle.vimの後継プラグイン
 
+if has("nvim")
+
 " dein Scripts ------------------------------
 if &compatible
   set nocompatible
 endif
 
 " パス設定
-if has("nvim")
-  let s:dein_dir = expand('~/.cache/dein')
-elseif has("win32")
-  let s:dein_dir = expand('~/vimfiles/dein')
+if has("win32")
+  let s:dein_cache_dir = expand('~/AppData/Local/dein')
+  let s:dein_toml_dir = expand('~/AppData/Local/nvim/dein')
 else
-  let s:dein_dir = expand('~/.vim/dein')
+  let s:dein_cache_dir = expand('~/.cache/dein')
+  let s:dein_toml_dir = expand('~/.config/nvim/dein')
 endif
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let s:toml      = s:dein_dir . '/dein.toml'
-let s:toml_ddc  = s:dein_dir . '/dein_ddc.toml'
-let s:toml_lazy = s:dein_dir . '/dein_lazy.toml'
+let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+let s:toml      = s:dein_toml_dir . '/dein.toml'
+let s:toml_ddc  = s:dein_toml_dir . '/dein_ddc.toml'
+let s:toml_lazy = s:dein_toml_dir . '/dein_lazy.toml'
 
 " git process
 if has("win32")
@@ -365,8 +373,8 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 
 " 設定開始
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+if dein#load_state(s:dein_cache_dir)
+  call dein#begin(s:dein_cache_dir)
 
   " tomlファイルを読み込み
   call dein#load_toml(s:toml,      {'lazy': 0})
@@ -387,6 +395,7 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
+endif
 " End dein Scropts -------------------------
 
 "---------------------------------------------------------------------------

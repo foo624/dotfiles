@@ -22,7 +22,6 @@ ln -sf ${DOT_FILES_DIR}/.vimrc ${HOME}/.vim/init.vim
 
 # nvim
 ln -sf ${HOME}/.vim ${HOME}/.config/nvim
-ln -sf ${DOT_FILES_DIR}/.vim/dein/*.toml ${HOME}/.cache/dein/
 
 # fzf
 if [ -d ${HOME}/.local/fzf ]; then
