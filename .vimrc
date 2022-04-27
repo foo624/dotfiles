@@ -62,8 +62,10 @@ set tabstop=2
 set shiftwidth=0
 set expandtab
 
-" 別途プラグインを入れてるのでoffにする
-" set showmatch "括弧入力時の対応する括弧を表示
+if !has('nvim')
+  " 別途プラグインを入れてるのでoffにする
+  set showmatch "括弧入力時の対応する括弧を表示
+endif
 
 " 行番号を非表示 (number:表示)
 set number
@@ -238,7 +240,7 @@ set clipboard=
 
 if has("win32")
   if has("nvim")
-    let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python37/python.exe')
+    let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python38/python.exe')
   else
     let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python35/python.exe')
   endif
@@ -285,6 +287,9 @@ endfunction
 if has('win32')
   " システムメニュー Alt+SPACE
   nmap <M-Space> :simalt ~<CR>
+
+  " ペースト用
+  noremap! <S-Insert> <C-R>+
 endif
 
 nmap <silent> <F4> :cn<CR>
