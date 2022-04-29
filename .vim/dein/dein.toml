@@ -5,7 +5,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-hook_add = 'source ~/.vim/config/plugins/plugins-denite.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-denite.vim'
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
@@ -57,7 +57,7 @@ repo = 'gregsexton/gitv'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.vim/config/plugins/plugins-lightline.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-lightline.vim'
 
 [[plugins]]
 repo = 'itchyny/vim-parenmatch'
@@ -68,7 +68,8 @@ repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-hook_add = 'source ~/.vim/config/plugins/plugins-fzf.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-fzf.vim'
+if   = '''has('unix')'''
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
@@ -81,6 +82,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'justinhoward/fzf-neoyank'
+if   = '''has('unix')'''
 
 [[plugins]]
 repo = 'maximbaz/lightline-ale'
@@ -98,7 +100,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-hook_add = 'source ~/.vim/config/plugins/plugins-lspconfig.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-lspconfig.vim'
+if   = '''has('unix')'''
 
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
@@ -137,7 +140,7 @@ repo = 'vim-scripts/matchit.zip'
 
 [[plugins]]
 repo = 'dense-analysis/ale'
-hook_add = 'source ~/.vim/config/plugins/plugins-ale.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-ale.vim'
 
 [[plugins]] # fish syntax
 repo = 'khaveesh/vim-fish-syntax'

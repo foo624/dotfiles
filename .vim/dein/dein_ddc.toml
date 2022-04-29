@@ -2,7 +2,7 @@
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-hook_add = 'source ~/.vim/config/plugins/plugins-ddc.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
@@ -27,7 +27,7 @@ repo = 'Shougo/pum.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-hook_add = 'source ~/.vim/config/plugins/plugins-neosnippet.vim'
+hook_add = 'source ~/.config/nvim/config/plugins/plugins-neosnippet.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'

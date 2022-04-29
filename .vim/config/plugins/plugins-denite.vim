@@ -64,7 +64,7 @@ call denite#custom#var('file/rec/git', 'command',
 let s:denite_custom_option_default = {
       \ 'split': 'floating',
       \ 'highlight_matched_char': 'Keyword',
-      \ 'highlight_window_background': 'NormalNC',
+      \ 'highlight_window_background': 'Normal',
       \ 'match_highlight': v:true,
       \ 'prompt': '>'
       \}
@@ -84,8 +84,13 @@ augroup END
 " map
 nnoremap [denite] <Nop>
 nmap <SPACE>u [denite]
-nmap F [denite]
-nnoremap [denite]F F
+if has('win32')
+  nmap f [denite]
+  nnoremap [denite]f f
+else
+  nmap F [denite]
+  nnoremap [denite]F F
+endif
 
 nnoremap <silent> [denite]b :<C-u>Denite -start-filter buffer<CR>
 nnoremap <silent> [denite]F :<C-u>DeniteBufferDir -start-filter -buffer-name=files file<CR>
@@ -104,7 +109,9 @@ nnoremap <silent> [denite]c :<C-u>Denite -start-filter command_history<CR>
 nnoremap <silent> [denite]p :<C-u>Denite -start-filter `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
 nnoremap <silent> [denite]/ :<C-u>Denite -start-filter line<CR>
 
-nnoremap <silent> [denite]t :<C-u>Deol<CR>
+if has('unix')
+  nnoremap <silent> [denite]t :<C-u>Deol<CR>
+endif
 nnoremap <silent> [denite]d :<C-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 nnoremap <silent> [denite]g :<C-u>DeniteCursorWord grep -start-filter -buffer-name=search-buffer-denite<CR>
