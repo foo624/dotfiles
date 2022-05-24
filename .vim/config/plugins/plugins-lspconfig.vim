@@ -6,6 +6,7 @@ lua <<EOF
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.cmake.setup{}
+require'lspconfig'.gopls.setup{}
 require'lspconfig'.jsonls.setup{}
 require'lspconfig'.pylsp.setup{
   settings = {
