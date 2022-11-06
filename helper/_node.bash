@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-VERSION="16.14.2"
+VERSION=${VERSION_NODE}
 APP_NAME="node"
 
 SOURCE_FILE_NAME="node-v${VERSION}-linux-x64.tar.xz"

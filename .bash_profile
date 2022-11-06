@@ -34,6 +34,16 @@ if [ -d "$HOME/.local/nvim" ] ; then
   export PATH=$HOME/.local/nvim/bin:$PATH
 fi
 
+# fzf
+if [ -d "$HOME/.local/fzf" ] ; then
+  export PATH=$HOME/.local/fzf/bin:$PATH
+fi
+
+# fish
+if [ -d "$HOME/.local/fish" ] ; then
+  export PATH=$HOME/.local/fish/bin:$PATH
+fi
+
 # golang
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin

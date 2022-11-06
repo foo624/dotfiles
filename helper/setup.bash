@@ -5,6 +5,14 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
+SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+target_env=${SCRIPT_DIR}/.env
+
+if [ ! -f ${target_env} ]; then
+  echo "No such file: ${target_env}";
+  exit 3
+fi
+
 target_script=$1
 
 if [ ! -f ${target_script} ]; then
@@ -12,6 +20,7 @@ if [ ! -f ${target_script} ]; then
   exit 2
 fi
 
+source ${target_env}
 source ${target_script}
 
 TARGET_DIR=${APP_NAME}

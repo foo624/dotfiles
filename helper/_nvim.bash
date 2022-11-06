@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-VERSION="0.7.0"
+VERSION=${VERSION_NVIM}
 APP_NAME="nvim"
 
 SOURCE_FILE_NAME="nvim-linux64.tar.gz"

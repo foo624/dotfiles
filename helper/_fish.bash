@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-VERSION="3.4.1"
+VERSION=${VERSION_FISH}
 APP_NAME="fish"
 
 SOURCE_FILE_NAME="${APP_NAME}-${VERSION}.tar.xz"
