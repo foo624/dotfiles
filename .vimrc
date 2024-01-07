@@ -296,8 +296,8 @@ nmap <silent> <F4> :cn<CR>
 nmap <silent> <S-F4> :cp<CR>
 nmap <silent> <F6> :call _()<CR>
 
-nmap <silent> <SPACE><SPACE>n :bn<CR>
-nmap <silent> <SPACE><SPACE>p :bp<CR>
+" nmap <silent> <SPACE><SPACE>n :bn<CR>
+" nmap <silent> <SPACE><SPACE>p :bp<CR>
 
 nmap <silent> <F5> :make<CR>
 set errorformat+=%D%*\\a[%*\\d]:\ ディレクトリ\ `%f'\ に入ります
@@ -363,6 +363,7 @@ endif
 let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 let s:toml      = s:dein_toml_dir . '/dein.toml'
 let s:toml_ddc  = s:dein_toml_dir . '/dein_ddc.toml'
+let s:toml_ddu  = s:dein_toml_dir . '/dein_ddu.toml'
 let s:toml_lazy = s:dein_toml_dir . '/dein_lazy.toml'
 
 " git process
@@ -384,6 +385,7 @@ if dein#load_state(s:dein_cache_dir)
   " tomlファイルを読み込み
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:toml_ddc,  {'lazy': 0})
+  call dein#load_toml(s:toml_ddu,  {'lazy': 0})
   call dein#load_toml(s:toml_lazy, {'lazy': 1})
 
   " 設定終了

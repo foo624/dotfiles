@@ -2,6 +2,7 @@
 " nvim-lspconfig - A collection of common configurations for Neovim's built-in language server client.
 "
 
+" hook_add {{{
 lua <<EOF
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}
@@ -42,3 +43,4 @@ EOF
 "
 " yamlls
 " yarn global add yaml-language-server
+" }}}

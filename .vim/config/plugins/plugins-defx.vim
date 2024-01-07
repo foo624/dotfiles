@@ -4,6 +4,7 @@
 " defx.nvim - filer
 "
 
+" hook_source {{{
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
@@ -83,3 +84,5 @@ call defx#custom#option('_', {
       \ 'toggle': 0,
       \ 'resume': 1,
       \ })
+
+" }}}

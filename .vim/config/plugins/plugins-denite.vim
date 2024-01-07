@@ -4,6 +4,7 @@
 " denite.nvim - unite.vimの後継
 "
 
+" hook_add {{{
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -83,7 +84,6 @@ augroup END
 
 " map
 nnoremap [denite] <Nop>
-nmap <SPACE>u [denite]
 if has('win32')
   nmap f [denite]
   nnoremap [denite]f f
@@ -124,7 +124,6 @@ nnoremap <silent> <C-p> :<C-u>Denite -resume -immediately -cursor-pos=-1 -buffer
 
 nnoremap [rails] <Nop>
 nmap     <Leader>r [rails]
-nmap     <SPACE>r [rails]
 nmap     [denite]r [rails]
 
 nnoremap [rails]r :Denite<Space>rails:
@@ -136,3 +135,4 @@ nnoremap <silent> [rails]h :<C-u>Denite -start-filter rails:helper<Return>
 nnoremap <silent> [rails]t :<C-u>Denite -start-filter rails:test<Return>
 nnoremap <silent> [rails]s :<C-u>Denite -start-filter rails:spec<Return>
 
+" }}}

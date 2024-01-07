@@ -2,35 +2,44 @@
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-hook_add = 'source ~/.config/nvim/config/plugins/plugins-ddc.vim'
+hooks_file = '~/.config/nvim/config/plugins/plugins-ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-around'
+repo = 'Shougo/ddc-filter-matcher_head'
 
 [[plugins]]
-repo = 'Shougo/ddc-cmdline'
+repo = 'Shougo/ddc-filter-sorter_rank'
 
 [[plugins]]
-repo = 'Shougo/ddc-cmdline-history'
+repo = 'Shougo/ddc-source-around'
 
 [[plugins]]
-repo = 'Shougo/ddc-matcher_head'
+repo = 'Shougo/ddc-source-cmdline'
 
 [[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
+repo = 'Shougo/ddc-source-cmdline-history'
 
 [[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
+repo = 'Shougo/ddc-source-lsp'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-native'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-hook_add = 'source ~/.config/nvim/config/plugins/plugins-neosnippet.vim'
+hooks_file = '~/.config/nvim/config/plugins/plugins-neosnippet.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'LumaKernel/ddc-file'
+repo = 'LumaKernel/ddc-source-file'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'

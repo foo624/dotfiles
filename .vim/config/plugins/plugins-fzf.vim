@@ -4,6 +4,7 @@
 " fzf.vim - インクリメンタルサーチで絞り込み
 "
 
+" hook_add {{{
 let $FZF_DEFAULT_OPTS="--layout=reverse"
 
 set rtp+=~/.local/fzf
@@ -61,9 +62,9 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 " [denite] convert mapping
 if has("unix")
-  nnoremap <silent> [fzf]t :<C-u>Deol<CR>
+  nnoremap <silent> [fzf]t <Cmd>call deol#start()<CR>
 endif
-nnoremap <silent> [fzf]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
+" nnoremap <silent> [fzf]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
 
 nnoremap <silent> [fzf]y :<C-u>FZFNeoyank<CR>
 nnoremap <silent> [fzf]Y :<C-u>FZFNeoyank " P<CR>
@@ -74,3 +75,4 @@ vnoremap <silent> [fzf]y :<C-u>FZFNeoyankSelection<CR>
 "   autocmd!
 "   autocmd FileType go nnoremap <buffer> <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline decls<CR>
 " augroup END
+" }}}

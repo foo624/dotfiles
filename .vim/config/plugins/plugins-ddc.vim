@@ -2,17 +2,27 @@
 " ddc.nvim - Dark deno-powered completion framework for neovim/Vim8
 "
 
+" hook_add {{{
+" You must set the default ui.
+" NOTE: native ui
+" https://github.com/Shougo/ddc-ui-native
+"call ddc#custom#patch_global('ui', 'native')
+" https://github.com/Shougo/ddc-ui-pum
+call ddc#custom#patch_global('ui', 'pum')
+
 " Customize global settings
 " Use around source.
-call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'file', 'neosnippet'])
+call ddc#custom#patch_global('sources', ['lsp', 'around', 'file', 'neosnippet'])
 
 " Use matcher_head and sorter_rank.
 " https://github.com/Shougo/ddc-matcher_head
 " https://github.com/Shougo/ddc-sorter_rank
 call ddc#custom#patch_global('sourceOptions', {
       \ '_': {
-      \   'matchers': ['matcher_head'],
-      \   'sorters': ['sorter_rank']},
+      \    'matchers': ['matcher_fuzzy'],
+      \    'sorters': ['sorter_fuzzy'],
+      \    'converters': ['converter_fuzzy'],
+      \  }
       \ })
 
 " https://github.com/Shougo/ddc-around
@@ -34,14 +44,14 @@ call ddc#custom#patch_global('sourceParams', {
 
 " https://github.com/Shougo/ddc-nvim-lsp
 call ddc#custom#patch_global('sourceOptions', {
-      \ 'nvim-lsp': {
+      \ 'lsp': {
       \   'mark': 'lsp',
       \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
       \ })
 
 " Use Customized labels
 call ddc#custom#patch_global('sourceParams', {
-      \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+      \ 'lsp': { 'kindLabels': { 'Class': 'c' } },
       \ })
 
 " https://github.com/Shougo/ddc-cmdline
@@ -92,16 +102,14 @@ call ddc#custom#patch_global('sourceOptions', {
 "     \ 'shell-history': {'mark': 'shell'},
 "     \ })
 
-" https://github.com/Shougo/pum.vim
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
-" inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
-" inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
 inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
 inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
 inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
-inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
+" inoremap <PageDown> <Cmd>call pum#map#insert_relative_page(+1)<CR>
+" inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
 
 "call ddc#custom#patch_global('autoCompleteEvents',
 "    \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
@@ -138,3 +146,4 @@ inoremap <PageUp>   <Cmd>call pum#map#insert_relative_page(-1)<CR>
 
 " Use ddc.
 call ddc#enable()
+" }}}

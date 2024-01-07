@@ -1,5 +1,6 @@
 " vim:set et ts=2 sts=2 sw=2 tw=0 fdm=marker:
 
+" hook_add {{{
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'mode_map': {'c': 'NORMAL'},
@@ -79,3 +80,4 @@ function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+" }}}

@@ -3,7 +3,7 @@
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 on_cmd = ['Defx']
-hook_source = 'source ~/.config/nvim/config/plugins/plugins-defx.vim'
+hooks_file = '~/.config/nvim/config/plugins/plugins-defx.vim'
 
 [[plugins]]
 repo = 'fatih/vim-go'

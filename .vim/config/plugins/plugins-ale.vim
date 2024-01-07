@@ -1,3 +1,4 @@
+" hook_add {{{
 " シンボルカラムを表示したままにする
 let g:ale_sign_column_always = 0
 " 保存時に整形してくれる
@@ -25,3 +26,4 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 nmap <silent> <M-p> <Plug>(ale_previous_wrap)
 nmap <silent> <M-n> <Plug>(ale_next_wrap)
+" }}}

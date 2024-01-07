@@ -4,6 +4,7 @@
 " neosnippet.vim - 
 "
 
+" hook_add {{{
 " disable preview
 set completeopt-=preview
 
@@ -40,3 +41,4 @@ endif
 "imap <expr><CR>
 "\ (pumvisible() && neosnippet#expandable()) ?
 "\ "\<Plug>(neosnippet_expand)" : "\<CR>"
+" }}}
