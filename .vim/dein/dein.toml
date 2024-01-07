@@ -107,7 +107,7 @@ if   = '''has('unix')'''
 repo = 'reireias/vim-cheatsheet'
 hook_add = '''
   let g:cheatsheet#cheat_file = '~/.local/state/nvim/cheatsheet.md'
-  nnoremap <silent> <Leader>md :<C-u>Cheat<CR>
+  nnoremap <silent> <Leader>md <Cmd>Cheat<CR>
 '''
 
 [[plugins]]
@@ -119,7 +119,7 @@ repo = 'tpope/vim-endwise'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-  nnoremap <silent> <Leader>gs :<C-u>Git<CR>
+  nnoremap <silent> <Leader>gs <Cmd>Git<CR>
 '''
 
 [[plugins]]

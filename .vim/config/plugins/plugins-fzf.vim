@@ -32,28 +32,28 @@ nnoremap [fzf] <Nop>
 nmap f [fzf]
 nnoremap [fzf]f f
 
-nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
-nnoremap <silent> [fzf]F :<C-u>Files<CR>
-nnoremap <silent> [fzf]m :<C-u>History<CR>
-nnoremap <silent> [fzf]h :<C-u>Helptags<CR>
+nnoremap <silent> [fzf]b <Cmd>Buffers<CR>
+nnoremap <silent> [fzf]F <Cmd>Files<CR>
+nnoremap <silent> [fzf]m <Cmd>History<CR>
+nnoremap <silent> [fzf]h <Cmd>Helptags<CR>
 
-nnoremap <silent> [fzf]T :<C-u>Tags<CR>
-nnoremap <silent> [fzf]o :<C-u>BTags<CR>
-nnoremap <silent> [fzf]c :<C-u>History:<CR>
-nnoremap <silent> [fzf]p :<C-u>call FzfOmniFiles()<CR>
-nnoremap <silent> [fzf]P :<C-u>GFiles?<CR>
-nnoremap <silent> [fzf]l :<C-u>Commits<CR>
-nnoremap <silent> [fzf]L :<C-u>BCommits<CR>
-nnoremap <silent> [fzf]/ :<C-u>BLines<CR>
+nnoremap <silent> [fzf]T <Cmd>Tags<CR>
+nnoremap <silent> [fzf]o <Cmd>BTags<CR>
+nnoremap <silent> [fzf]c <Cmd>History:<CR>
+nnoremap <silent> [fzf]p <Cmd>call FzfOmniFiles()<CR>
+nnoremap <silent> [fzf]P <Cmd>GFiles?<CR>
+nnoremap <silent> [fzf]l <Cmd>Commits<CR>
+nnoremap <silent> [fzf]L <Cmd>BCommits<CR>
+nnoremap <silent> [fzf]/ <Cmd>BLines<CR>
 
-nnoremap <silent> [fzf]g :<C-u>Pt <C-r><C-w><CR>
-nnoremap <silent> [fzf]G :<C-u>exec ":Pt ".input("Input: ")<CR>
-nnoremap <silent> [fzf]nn :<C-u>cnext<CR>
-nnoremap <silent> [fzf]np :<C-u>cprev<CR>
+nnoremap <silent> [fzf]g <Cmd>Pt <C-r><C-w><CR>
+nnoremap <silent> [fzf]G <Cmc>exec ":Pt ".input("Input: ")<CR>
+nnoremap <silent> [fzf]nn <Cmd>cnext<CR>
+nnoremap <silent> [fzf]np <Cmd>cprev<CR>
 
-nnoremap <silent> <C-p> :<C-u>cprev<CR>
-nnoremap <silent> <C-n> :<C-u>cnext<CR>
-nnoremap <silent> <leader>c :<C-u>cclose<CR>
+nnoremap <silent> <C-p> <Cmd>cprev<CR>
+nnoremap <silent> <C-n> <Cmd>cnext<CR>
+nnoremap <silent> <leader>c <Cmd>cclose<CR>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -64,15 +64,15 @@ omap <leader><tab> <plug>(fzf-maps-o)
 if has("unix")
   nnoremap <silent> [fzf]t <Cmd>call deol#start()<CR>
 endif
-" nnoremap <silent> [fzf]d :<C-u>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
+" nnoremap <silent> [fzf]d <Cmd>Defx `escape(expand('%:p:h'), ' :')` -search=`expand('%:p')`<CR>
 
-nnoremap <silent> [fzf]y :<C-u>FZFNeoyank<CR>
-nnoremap <silent> [fzf]Y :<C-u>FZFNeoyank " P<CR>
-vnoremap <silent> [fzf]y :<C-u>FZFNeoyankSelection<CR>
+nnoremap <silent> [fzf]y <Cmd>FZFNeoyank<CR>
+nnoremap <silent> [fzf]Y <Cmd>FZFNeoyank " P<CR>
+vnoremap <silent> [fzf]y <Cmd>FZFNeoyankSelection<CR>
 
 " " for golang
 " augroup MyDeniteMap
 "   autocmd!
-"   autocmd FileType go nnoremap <buffer> <silent> [fzf]o :<C-u>Denite -start-filter -buffer-name=outline decls<CR>
+"   autocmd FileType go nnoremap <buffer> <silent> [fzf]o <Cmd>Denite -start-filter -buffer-name=outline decls<CR>
 " augroup END
 " }}}
