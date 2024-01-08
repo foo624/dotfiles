@@ -12,7 +12,11 @@ call ddc#custom#patch_global('ui', 'pum')
 
 " Customize global settings
 " Use around source.
-call ddc#custom#patch_global('sources', ['lsp', 'around', 'file', 'neosnippet'])
+if has('unix')
+  call ddc#custom#patch_global('sources', ['lsp', 'around', 'file', 'neosnippet'])
+else
+  call ddc#custom#patch_global('sources', ['around', 'file', 'neosnippet'])
+endif
 
 " Use matcher_head and sorter_rank.
 " https://github.com/Shougo/ddc-matcher_head
