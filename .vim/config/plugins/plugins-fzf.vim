@@ -46,8 +46,8 @@ nnoremap <silent> [fzf]l <Cmd>Commits<CR>
 nnoremap <silent> [fzf]L <Cmd>BCommits<CR>
 nnoremap <silent> [fzf]/ <Cmd>BLines<CR>
 
-nnoremap <silent> [fzf]g <Cmd>Pt <C-r><C-w><CR>
-nnoremap <silent> [fzf]G <Cmc>exec ":Pt ".input("Input: ")<CR>
+nnoremap <silent> [fzf]g :<C-u>Pt <C-r><C-w><CR>
+nnoremap <silent> [fzf]G <Cmd>exec ":Pt ".input("Input: ")<CR>
 nnoremap <silent> [fzf]nn <Cmd>cnext<CR>
 nnoremap <silent> [fzf]np <Cmd>cprev<CR>
 

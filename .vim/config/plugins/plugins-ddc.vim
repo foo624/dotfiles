@@ -106,7 +106,12 @@ call ddc#custom#patch_global('sourceOptions', {
 "     \ 'shell-history': {'mark': 'shell'},
 "     \ })
 
-inoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+inoremap <expr> <TAB>
+      \ pum#visible() ?
+      \   '<Cmd>call pum#map#insert_relative(+1, "empty")<CR>' :
+      \ col('.') <= 1 ? '<TAB>' :
+      \ getline('.')[col('.') - 2] =~# '\s' ? '<TAB>' :
+      \ ddc#map#manual_complete()
 inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
 inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
