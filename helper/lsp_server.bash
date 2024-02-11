@@ -5,8 +5,14 @@ if !(type npm > /dev/null 2>&1); then
   exit 1
 fi
 
+if !(type go > /dev/null 2>&1); then
+  echo "go command not found."
+  exit 2
+fi
+
 npm=(
   yarn
+  markdownlint-cli
 )
 
 pip=(
@@ -18,6 +24,10 @@ yarn=(
   bash-language-server
   vscode-langservers-extracted
   yaml-language-server
+)
+
+go=(
+  github.com/mattn/efm-langserver@latest
 )
 
 for app in ${npm[@]}; do
@@ -47,3 +57,11 @@ for app in ${yarn[@]}; do
   fi
 done
 
+for app in ${go[@]}; do
+  if type ${app} > /dev/null 2>&1; then
+    echo "Already installed ${app}"
+  else
+    echo "Install ${app}"
+    go install ${app}
+  fi
+done

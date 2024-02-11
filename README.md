@@ -1,4 +1,4 @@
-# installer
+# dotfiles
 
 ## require
 
@@ -6,9 +6,9 @@
 - git
 - unzip
 
-# fish
+## fish
 
-## PATH
+### PATH
 
 ```bash
 nvim ~/.config/fish/config.fish
@@ -24,8 +24,6 @@ nvim ~/.config/fish/config.fish
 
 ## fisher
 
-### install
-
 - <https://github.com/jorgebucaran/fisher>
 
 ```bash
@@ -38,11 +36,16 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher update
 ```
 
-### configuration
+## configuration
 
-#### prompt color
+### prompt color
 
-```
+```shell
 set -U fish_color_prompt_name green
 ```
 
+### docker completion
+
+```shell
+docker completion fish > ~/.config/fish/completions/docker.fish
+```
