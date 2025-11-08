@@ -31,30 +31,16 @@ if test -d /usr/local/go/bin
   fish_add_path /usr/local/go/bin $GOBIN
 end
 
-set -x NVIM_INSTALL $HOME/.local/nvim
-if test -d $NVIM_INSTALL/bin
-  fish_add_path $NVIM_INSTALL/bin
-end
-
-set -x FZF_INSTALL $HOME/.local/fzf
-if test -d $FZF_INSTALL/bin
-  fish_add_path $FZF_INSTALL/bin
-end
-
-set -x NODE_INSTALL $HOME/.local/node
-if test -d $NODE_INSTALL/bin
-  fish_add_path $NODE_INSTALL/bin
-end
-
-set -x YARN_INSTALL $HOME/.yarn
-if test -d $YARN_INSTALL/bin
-  fish_add_path $YARN_INSTALL/bin
+set -l apps nvim fzf node .yarn
+for app in $apps
+  fish_add_path $HOME/.local/$app/bin
 end
 
 # env
-if test -x $NVIM_INSTALL/bin/nvim
-  set -x SUDO_EDITOR $NVIM_INSTALL/bin/nvim
-  set -x EDITOR $NVIM_INSTALL/bin/nvim
+set -l nvim_path $HOME/.local/nvim/bin/nvim
+if test -x $nvim_path
+  set -x SUDO_EDITOR $nvim_path
+  set -x EDITOR $nvim_path
 else
   set -x SUDO_EDITOR nvim
   set -x EDITOR nvim

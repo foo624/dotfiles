@@ -10,7 +10,7 @@ alias rm='rm -iv'
 alias df='df -h'
 alias du='du -hc'
 
-if [[ -x `which colordiff` ]]; then
+if [[ -x $(command -v colordiff) ]]; then
   alias diff='colordiff -u'
 fi
 

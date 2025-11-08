@@ -14,19 +14,19 @@ function parse() {
       base_dir=${2}
       ;;
     "mkdir" )
-      make_directory ${2}
+      make_directory "${2}"
       ;;
 
     "link" )
-      link_file ${2} ${3}
+      link_file "${2}" "${3}"
       ;;
 
     "links" )
-      link_files ${2} ${3}
+      link_files "${2}" "${3}"
       ;;
 
     "git" )
-      git_clone ${2} ${3}
+      git_clone "${2}" "${3}"
       ;;
 
     *)
@@ -41,9 +41,9 @@ function make_directory() {
   target=${1}
   target_dir=${base_dir}/${target}
 
-  if [ ! -e ${target_dir} ]; then
+  if [ ! -e "${target_dir}" ]; then
     echo "mkdir ${target_dir}"
-    mkdir -p ${target_dir}
+    mkdir -p "${target_dir}"
   else
     echo "[skip] mkdir ${target_dir}"
   fi
@@ -67,20 +67,20 @@ function link_file() {
   source_file=${source_dir}/${filename}
   target_file=${target_dir}/${filename}
 
-  if [ -f ${target_file} ]; then
-    if [ ! -L ${target_file} ]; then
+  if [ -f "${target_file}" ]; then
+    if [ ! -L "${target_file}" ]; then
       echo "backup ${target_file}"
-      mv ${target_file} ${target_file}.dotfile
+      mv "${target_file}" "${target_file}.dotfile"
     fi
   fi
 
-  if [ ! -d ${target_dir} ]; then
-    make_directory ${pathname}
+  if [ ! -d "${target_dir}" ]; then
+    make_directory "${pathname}"
   fi
 
-  if [ ! -L ${target_file} ]; then
+  if [ ! -L "${target_file}" ]; then
     echo "link ${source_file} ${target_file}"
-    ln -s ${source_file} ${target_file}
+    ln -s "${source_file}" "${target_file}"
   else
     echo "[skip] link ${source_file} ${target_file}"
   fi
@@ -101,12 +101,12 @@ function link_files() {
     source_dir=${script_dir}/${pathname}
     target_dir=${base_dir}/${pathname}
   fi
-  source_file=${source_dir}/*${extension}
+  source_file="${source_dir}/*${extension}"
 
   echo "links ${source_file} ${target_dir}"
-  files=`find ${source_dir} -type f -name "*${extension}" -print0 | xargs -0 basename -a`
+  files=$(find "${source_dir}" -type f -name "*${extension}" -print0 | xargs -0 basename -a)
   for f in ${files}; do
-    link_file ${pathname} ${f}
+    link_file "${pathname}" "${f}"
   done
 
 }
@@ -125,11 +125,11 @@ function git_clone() {
     target_dir=${base_dir}/${pathname}
   fi
 
-  if [ -d ${target_dir} ]; then
+  if [ -d "${target_dir}" ]; then
     echo "[skip] git clone ${url} ${target_dir}"
   else
     echo "git clone ${url} ${target_dir}"
-    git clone --depth 1 ${url} ${target_dir}
+    git clone --depth 1 "${url}" "${target_dir}"
   fi
 }
 
@@ -137,9 +137,10 @@ function main() {
   while IFS= read -r line
   do
     if [ -n "$line" ]; then
-      parse $line
+      read -r -a param <<< "${line}"
+      parse "${param[@]}"
     fi
-  done < ${1}
+  done < "${1}"
 }
 
-main ${script_file}
+main "${script_file}"

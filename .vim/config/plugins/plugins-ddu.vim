@@ -45,7 +45,7 @@ function! s:ddu_filer_my_settings() abort
 
   nnoremap <buffer><silent><expr> l
     \ ddu#ui#get_item()->get('isTree', v:false) ?
-    \ "<Cmd>call ddu#ui#do_action('expandItem', {'model': 'toggle'})<CR>" :
+    \ "<Cmd>call ddu#ui#do_action('expandItem', {'mode': 'toggle'})<CR>" :
     \ "<Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>"
 
   nnoremap <buffer> <Space>
